@@ -1,0 +1,17 @@
+.appContainer {
+    max-width: 1200px;
+    max-height: 800px;
+    display: grid;
+    margin: 0 auto;
+    grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+    grid-template-rows: 5em 30em 5em;
+    grid-template-columns: 15% 85%;
+}
+
+
+
+
+

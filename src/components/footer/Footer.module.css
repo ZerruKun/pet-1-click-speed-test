@@ -1,0 +1,8 @@
+.footerItem {
+    grid-area: footer;
+    background-color: dodgerblue;
+}
+
+.footerItem h2 {
+    text-align: center;
+}

@@ -1,7 +1,17 @@
+import React from "react";
+import styles from "./App.module.css";
+import Header from "./components/header/Header";
+import Main from "./components/main/Main";
+import Sidebar from "./components/sidebar/Sidebar";
+import Footer from "./components/footer/Footer";
+
 function App() {
   return (
-    <div className="App">
-      <h1>All is ok</h1>
+    <div className={styles.appContainer}>
+      <Header/>
+      <Sidebar />
+      <Main />
+      <Footer />
     </div>
   );
 }
