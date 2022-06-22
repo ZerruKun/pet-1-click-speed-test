@@ -1,0 +1,8 @@
+.headerItem {
+    grid-area: header;
+    background-color:dodgerblue;
+}
+
+.headerItem h1 {
+    text-align: center;
+}
