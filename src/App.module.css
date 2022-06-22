@@ -4,32 +4,79 @@
     display: grid;
     margin: 0 auto;
     grid-template-areas:
-    "h h"
-    "s m"
-    "f f";
+    "header header"
+    "sidebar main"
+    "footer footer";
     grid-template-rows: 5em 30em 5em;
     grid-template-columns: 15% 85%;
 }
 
 .headerItem {
-    grid-area: h;
+    grid-area: header;
     background-color:dodgerblue;
 }
 
+.headerItem h1 {
+    text-align: center;
+}
+
 .sidebarItem {
-    grid-area: s;
+    grid-area: sidebar;
     background-color:deepskyblue;
 }
 
 .mainItem {
-    grid-area: m;
+    grid-area: main;
     background-color: white;
 }
 
 .footerItem {
-    grid-area: f;
+    grid-area: footer;
     background-color: dodgerblue;
 }
+
+.footerItem h2 {
+    text-align: center;
+}
+
+/* для первой страницы */
+
+.cspContainer {
+    display: grid;
+    margin: 0 auto;
+    grid-template-areas:
+    "time1 . time2"
+    ". button ."
+    "table1 . table2";
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+
+.timeItem1 {
+    grid-area: time1;
+    background-color: aquamarine;
+}
+
+.timeItem2 {
+    grid-area: time2;
+    background-color: aquamarine;
+}
+
+.buttonItem {
+    grid-area: button;
+    background-color: black;
+}
+
+.tableItem1 {
+    grid-area: table1;
+    background-color: blue;
+}
+
+.tableItem2 {
+    grid-area: table2;
+    background-color: blue;
+}
+
 
 
 
