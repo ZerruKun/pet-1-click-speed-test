@@ -1,16 +1,60 @@
 import React from "react";
 import styles from "./Main.module.css";
+import { useState } from "react";
 
 const Main = () => {
+
+  const [startTime, setStartTime] = useState("");
+
+  const [remainingTime, setRemainingTime] = useState("");
+
+  const isRealNumber = (num) => {
+    if(num === "0" || num === "1" || num === "2" || 
+      num === "4" || num === "5" || num === "6" || 
+      num === "7" || num === "8" || num === "9") {
+        return true;
+      }
+  }
+
+  const checkStartTime = (e) => {
+    if(e.currentTarget.value > 120) {
+      e.currentTarget.value = 120;
+    } else if (e.currentTarget.value === "0") {
+      e.currentTarget.value = "";
+    } else {
+      let time = [...e.currentTarget.value];
+      console.log(time);
+      let filteredTime = time.filter(isRealNumber);
+      console.log(filteredTime);
+      e.currentTarget.value = filteredTime.join('');
+    }
+
+    console.log(e.currentTarget.value);
+
+    setStartTime(e.currentTarget.value);
+    setRemainingTime(e.currentTarget.value);
+  }
+
   return (
     <div className={styles.mainItem}>
       {/* Пока только для первой страницы */}
       <div className={styles.cspContainer}>
         <div className={styles.timeItem1}>
-          <h3>Таймер1</h3>
+          <h3>Enter destination time</h3>
+          <input
+            value={startTime}
+            type="text"
+            onChange={checkStartTime}
+          />
         </div>
         <div className={styles.timeItem2}>
-          <h3>Таймер2</h3>
+          <h3>Remaining time</h3>
+          <input
+            value={remainingTime}
+            type="text"
+            readOnly
+            // onChange={checkRemainingTime}
+          />
         </div>
         <div className={styles.buttonItem}>
           <button>Кнопка тык!</button>
