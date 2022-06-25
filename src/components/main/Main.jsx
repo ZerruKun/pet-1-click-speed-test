@@ -8,6 +8,8 @@ const Main = () => {
 
   const [remainingTime, setRemainingTime] = useState("");
 
+  const [isTimerUp, setIsTimerUp] = useState(false);
+
   const isRealNumber = (num) => {
     if(num === "0" || num === "1" || num === "2" || 
       num === "4" || num === "5" || num === "6" || 
@@ -35,6 +37,27 @@ const Main = () => {
     setRemainingTime(e.currentTarget.value);
   }
 
+  const startTimer = () => {
+    
+  }
+
+  let n = 0;
+
+  const ClickyClicky = () => {
+    if(remainingTime === "") {
+      setStartTime(30)
+      setRemainingTime(30);
+    }
+    if(!isTimerUp) {
+      setIsTimerUp(true);
+      startTimer();
+    }
+    if(isTimerUp) {
+      n++;
+      console.log(n);
+    }
+  }
+
   return (
     <div className={styles.mainItem}>
       {/* Пока только для первой страницы */}
@@ -57,7 +80,7 @@ const Main = () => {
           />
         </div>
         <div className={styles.buttonItem}>
-          <button>Кнопка тык!</button>
+          <button onClick={ClickyClicky}>Кнопка тык!</button>
         </div>
         <div className={styles.tableItem1}>
           <h3>Таблица1</h3>
