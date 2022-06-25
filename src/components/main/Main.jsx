@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Main.module.css";
 import { useState } from "react";
+import useDidMountEffect from "../../useDidMountEffect";
 
 const Main = () => {
 
@@ -8,15 +9,31 @@ const Main = () => {
 
   const [remainingTime, setRemainingTime] = useState("");
 
-  const [isTimerUp, setIsTimerUp] = useState(false);
+  // const [isTimerUp, setIsTimerUp] = useState(false);
 
   const isRealNumber = (num) => {
-    if(num === "0" || num === "1" || num === "2" || 
+    if(num === "0" || num === "1" || num === "2" || num === "3" ||
       num === "4" || num === "5" || num === "6" || 
       num === "7" || num === "8" || num === "9") {
         return true;
       }
   }
+
+  function waitTime(ms) {
+    let current_date = Date.now();
+    while (current_date + ms > Date.now()) {}
+  }
+
+  useDidMountEffect(() => {
+    if(remainingTime >= 0) {
+      setRemainingTime((remainingTime-0.01).toFixed(2));
+      waitTime(10);
+      console.log(remainingTime);
+    } else (setRemainingTime("Time's up!"));
+  }, [remainingTime])
+
+
+  //Проверка на ввод стартового времени
 
   const checkStartTime = (e) => {
     if(e.currentTarget.value > 120) {
@@ -25,38 +42,41 @@ const Main = () => {
       e.currentTarget.value = "";
     } else {
       let time = [...e.currentTarget.value];
-      console.log(time);
+      // console.log(time);
       let filteredTime = time.filter(isRealNumber);
-      console.log(filteredTime);
+      // console.log(filteredTime);
       e.currentTarget.value = filteredTime.join('');
     }
 
     console.log(e.currentTarget.value);
 
     setStartTime(e.currentTarget.value);
-    setRemainingTime(e.currentTarget.value);
   }
 
-  const startTimer = () => {
-    
-  }
+  //Кнопка и изменение таймеров
 
-  let n = 0;
+  // const changeTimer = () => {
+  //   setInterval(() => {
+  //     console.log("bub!");
+  //     console.log(startTime);
+  //   }, 1000);
+  // }
+
+  // const changeTimer = () => {
+
+  // }
 
   const ClickyClicky = () => {
-    if(remainingTime === "") {
-      setStartTime(30)
+    if(startTime === "") {
+      setStartTime(30);
       setRemainingTime(30);
+    } else {
+      setRemainingTime(startTime);
     }
-    if(!isTimerUp) {
-      setIsTimerUp(true);
-      startTimer();
-    }
-    if(isTimerUp) {
-      n++;
-      console.log(n);
-    }
+    console.log(remainingTime);
   }
+
+  //Вывод мейна
 
   return (
     <div className={styles.mainItem}>
