@@ -9,7 +9,9 @@ const Main = () => {
 
   const [remainingTime, setRemainingTime] = useState("");
 
-  // const [isTimerUp, setIsTimerUp] = useState(false);
+  const [isTimerUp, setIsTimerUp] = useState(false);
+
+  const [clickCount, setClickCount] = useState(0);
 
   const isRealNumber = (num) => {
     if(num === "0" || num === "1" || num === "2" || num === "3" ||
@@ -19,17 +21,30 @@ const Main = () => {
       }
   }
 
-  function waitTime(ms) {
+  const waitTime = (ms) => {
     let current_date = Date.now();
     while (current_date + ms > Date.now()) {}
   }
 
-  useDidMountEffect(() => {
-    if(remainingTime >= 0) {
+  const timetTick = () => {
+    if(remainingTime > 0) {
       setRemainingTime((remainingTime-0.01).toFixed(2));
       waitTime(10);
-      console.log(remainingTime);
-    } else (setRemainingTime("Time's up!"));
+      // console.log(remainingTime);
+    } else {
+      setRemainingTime("Time's up!");
+      setIsTimerUp(false);
+
+    }
+  }
+
+  const timestamp = () => {
+    setClickCount(clickCount+1);
+    console.log(clickCount);
+  }
+
+  useDidMountEffect(() => {
+    timetTick();
   }, [remainingTime])
 
 
@@ -67,13 +82,19 @@ const Main = () => {
   // }
 
   const ClickyClicky = () => {
-    if(startTime === "") {
-      setStartTime(30);
-      setRemainingTime(30);
-    } else {
+    if(startTime === "" && !isTimerUp) {
+      setStartTime(10);
+      setRemainingTime(10);
+      setIsTimerUp(true);
+    } else if (!isTimerUp) {
       setRemainingTime(startTime);
+      setIsTimerUp(true);
     }
-    console.log(remainingTime);
+    if(isTimerUp) {
+      timestamp();
+    }
+
+    // console.log(remainingTime);
   }
 
   //Вывод мейна
@@ -88,6 +109,7 @@ const Main = () => {
             value={startTime}
             type="text"
             onChange={checkStartTime}
+            placeholder="Seconds between 1 and 120"
           />
         </div>
         <div className={styles.timeItem2}>
@@ -96,7 +118,6 @@ const Main = () => {
             value={remainingTime}
             type="text"
             readOnly
-            // onChange={checkRemainingTime}
           />
         </div>
         <div className={styles.buttonItem}>
@@ -107,6 +128,18 @@ const Main = () => {
         </div>
         <div className={styles.tableItem2}>
           <h3>Таблица2</h3>
+          <input 
+            value={clickCount} 
+            readOnly
+          />
+          <input 
+            //best click
+            readOnly
+          />
+          <input 
+            //average click
+            readOnly
+          />
         </div>
       </div>
     </div>
