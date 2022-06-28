@@ -13,6 +13,10 @@ const Main = () => {
 
   const [clickCount, setClickCount] = useState(0);
 
+  const [bestClick, setBestClick] = useState(0);
+
+  const [averageClicks, setAverageClicks] = useState(0);
+
   const isRealNumber = (num) => {
     if(num === "0" || num === "1" || num === "2" || num === "3" ||
       num === "4" || num === "5" || num === "6" || 
@@ -34,19 +38,12 @@ const Main = () => {
     } else {
       setRemainingTime("Time's up!");
       setIsTimerUp(false);
-
     }
-  }
-
-  const timestamp = () => {
-    setClickCount(clickCount+1);
-    console.log(clickCount);
   }
 
   useDidMountEffect(() => {
     timetTick();
   }, [remainingTime])
-
 
   //Проверка на ввод стартового времени
 
@@ -63,7 +60,7 @@ const Main = () => {
       e.currentTarget.value = filteredTime.join('');
     }
 
-    console.log(e.currentTarget.value);
+    // console.log(e.currentTarget.value);
 
     setStartTime(e.currentTarget.value);
   }
@@ -81,18 +78,28 @@ const Main = () => {
 
   // }
 
-  const ClickyClicky = () => {
+  const ClickyClicky = (e) => {
+    e.preventDefault();
     if(startTime === "" && !isTimerUp) {
-      setStartTime(10);
-      setRemainingTime(10);
+      setStartTime(2);
+      setRemainingTime(2);
       setIsTimerUp(true);
-    } else if (!isTimerUp) {
+      setClickCount(1+clickCount);
+    } else if(!isTimerUp) {
       setRemainingTime(startTime);
       setIsTimerUp(true);
+      setClickCount((1+clickCount));
     }
     if(isTimerUp) {
-      timestamp();
+      setClickCount(1+clickCount);
     }
+    if(clickCount === 1) {
+      setBestClick((startTime - remainingTime).toFixed(2));
+    }
+    // if(remainingTime > 1) {
+    //   console.log("clickCount: "+clickCount);
+    //   console.log("bestClick: "+bestClick);
+    // }
 
     // console.log(remainingTime);
   }
@@ -133,11 +140,11 @@ const Main = () => {
             readOnly
           />
           <input 
-            //best click
+            value={bestClick}
             readOnly
           />
           <input 
-            //average click
+            value={averageClicks}
             readOnly
           />
         </div>
