@@ -1,0 +1,4 @@
+.timeItem {
+    grid-area: time;
+    background-color: aquamarine;
+}

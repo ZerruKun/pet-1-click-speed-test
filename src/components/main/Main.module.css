@@ -8,26 +8,20 @@
     display: grid;
     margin: 0 auto;
     grid-template-areas:
-    "time1 . time2"
-    ". button ."
+    "time time time"
+    "button button button"
     "table1 . table2";
     grid-template-rows: auto;
     grid-template-columns: auto;
-}
-
-.timeItem1 {
-    grid-area: time1;
-    background-color: aquamarine;
-}
-
-.timeItem2 {
-    grid-area: time2;
-    background-color: aquamarine;
+    text-align: center;
+    justify-content: center;
 }
 
 .buttonItem {
     grid-area: button;
     background-color: black;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .tableItem1 {
