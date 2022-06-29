@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {useContext} from "react";
 import style from "./DestinationTime.module.css";
+import applicationContext from "../../context";
 
 const DestinationTime = () => {
-  const [startTime, setStartTime] = useState("");
+  
+  const {startTime, setStartTime} = useContext(applicationContext);
 
   const isRealNumber = (num) => {
     if (
