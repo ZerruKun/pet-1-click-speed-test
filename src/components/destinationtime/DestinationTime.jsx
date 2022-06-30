@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import React, { useState } from "react";
 import style from "./DestinationTime.module.css";
-import applicationContext from "../../context";
 
 const DestinationTime = () => {
-  
-  const {startTime, setStartTime} = useContext(applicationContext);
+  const [startTime, setStartTime] = useState("");
+
+  const [timerStart, setTimerStart] = useState(false);
 
   const isRealNumber = (num) => {
     if (
@@ -29,6 +29,12 @@ const DestinationTime = () => {
     setStartTime(changedStartTime);
   };
 
+  const changeTimerStart = (value) => {
+    let isStarted = value;
+    console.log(isStarted);
+    setTimerStart(isStarted);
+  };
+
   const checkStartTime = (e) => {
     if (e.currentTarget.value > 120) {
       e.currentTarget.value = 120;
@@ -42,16 +48,51 @@ const DestinationTime = () => {
     changeStartTime(e.currentTarget.value);
   };
 
+  // const waitTime = (ms) => {
+  //   let current_date = Date.now();
+  //   while (current_date + ms > Date.now()) {}
+  // }
+
+  // const ClickyClicky = () => {
+  //   for (let i = startTime; i>=0; i--) {
+  //     changeStartTime(i);
+  //     waitTime(1000);
+  //   }
+  // }
+
+  const ClickyClicky = () => {
+    changeTimerStart(!timerStart);
+  };
+
   return (
-      <div className={style.timeItem}>
-        <h3>Enter destination time</h3>
-        <input
-          value={startTime}
-          type="text"
-          onChange={checkStartTime}
-          placeholder="Seconds between 1 and 120"
-        />
-      </div>
+    <div className={style.timeItem}>
+      <h3>Enter destination time</h3>
+      {!timerStart ? (
+        <div>
+          <input
+            value={startTime}
+            type="text"
+            onChange={checkStartTime}
+            placeholder="Seconds between 1 and 120"
+          />
+          <div>
+            <button onClick={ClickyClicky}>Кнопка тык!</button>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <input
+            value={startTime}
+            type="text"
+            readOnly
+          />
+          <div>
+            <button onClick={ClickyClicky}>Кнопка пык!</button>
+          </div>
+        </div>
+      )}
+
+    </div>
   );
 };
 

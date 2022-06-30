@@ -9,19 +9,11 @@
     margin: 0 auto;
     grid-template-areas:
     "time time time"
-    "button button button"
     "table1 . table2";
     grid-template-rows: auto;
     grid-template-columns: auto;
     text-align: center;
     justify-content: center;
-}
-
-.buttonItem {
-    grid-area: button;
-    background-color: black;
-    margin-top: 2em;
-    margin-bottom: 2em;
 }
 
 .tableItem1 {
