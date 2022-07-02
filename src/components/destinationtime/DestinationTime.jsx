@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./DestinationTime.module.css";
+import useDidMountEffect from "../../useDidMountEffect";
 
 const DestinationTime = () => {
   const [startTime, setStartTime] = useState("");
@@ -8,12 +9,24 @@ const DestinationTime = () => {
 
   const [timerStart, setTimerStart] = useState(false);
 
+  useDidMountEffect (() => {
+      timeTick();
+  }, [remainingTime])
+
   const waitTime = (ms) => {
     let current_date = Date.now();
     while (current_date + ms > Date.now()) {}
   }
 
-
+  const timeTick = () => {
+    if(remainingTime > 0) {
+      changeRemainingTime((remainingTime-0.01).toFixed(2));
+      waitTime(10);
+    } else {
+      changeRemainingTime("Time's up!");
+      changeStartTime(false);
+    }
+  }
 
   const isRealNumber = (num) => {
     if (
@@ -63,18 +76,15 @@ const DestinationTime = () => {
     changeStartTime(e.currentTarget.value);
   };
 
-
-
-  // const ClickyClicky = () => {
-  //   for (let i = startTime; i>=0; i--) {
-  //     changeStartTime(i);
-  //     waitTime(1000);
-  //   }
-  // }
-
   const start = () => {
-    changeTimerStart(!timerStart);
-    changeRemainingTime(startTime);
+    if(startTime === "") {
+      changeTimerStart(true);
+      changeStartTime(2);
+      changeRemainingTime(2);
+    } else {
+      changeTimerStart(true);
+      changeRemainingTime(startTime);
+    }
   };
 
   const clickyClicky = () => {
