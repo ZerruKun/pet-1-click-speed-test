@@ -6,7 +6,7 @@ import applicationContext from "../../context";
 const DestinationTime = () => {
   const [startTime, setStartTime] = useState("");
 
-  const {remainingTime, setRemainingTime} = useContext(applicationContext);
+  const {remainingTime, setRemainingTime, clickCount, setClickCount} = useContext(applicationContext);
 
   const [timerStart, setTimerStart] = useState(false);
 
@@ -64,6 +64,12 @@ const DestinationTime = () => {
     setTimerStart(isStarted);
   };
 
+  const changeClickCount = (value) => {
+    let changedClickCount = value;
+    console.log(changedClickCount);
+    setClickCount(changedClickCount);
+  };
+
   const checkStartTime = (e) => {
     if (e.currentTarget.value > 120) {
       e.currentTarget.value = 120;
@@ -89,7 +95,7 @@ const DestinationTime = () => {
   };
 
   const clickyClicky = () => {
-
+    changeClickCount(clickCount+1);
   }
 
   return (
@@ -104,7 +110,7 @@ const DestinationTime = () => {
             placeholder="Seconds between 1 and 120"
           />
           <div>
-            <button onClick={start}>Кнопка тык!</button>
+            <button onClick={start}>Start</button>
           </div>
         </div>
       ) : (
@@ -115,7 +121,7 @@ const DestinationTime = () => {
             readOnly
           />
           <div>
-            <button onClick={clickyClicky}>Кнопка пык!</button>
+            <button onClick={clickyClicky}>Click!</button>
           </div>
         </div>
       )}
