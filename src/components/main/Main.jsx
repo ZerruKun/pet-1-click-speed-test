@@ -1,4 +1,5 @@
 import React from "react";
+import CurrentResults from "../currentResult/CurrentResults";
 import DestinationTime from "../destinationtime/DestinationTime";
 import styles from "./Main.module.css";
 
@@ -12,18 +13,7 @@ const Main = () => {
         <div className={styles.tableItem1}>
           <h3>Таблица1</h3>
         </div>
-        <div className={styles.tableItem2}>
-          <h3>Таблица2</h3>
-          <input 
-            readOnly
-          />
-          <input 
-            readOnly
-          />
-          <input 
-            readOnly
-          />
-        </div>
+        <CurrentResults />
       </div>
     </div>
   );
