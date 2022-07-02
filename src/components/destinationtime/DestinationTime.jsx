@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./DestinationTime.module.css";
 
 const DestinationTime = () => {
   const [startTime, setStartTime] = useState("");
 
+  const [remainingTime, setRemainingTime] = useState(0);
+
   const [timerStart, setTimerStart] = useState(false);
+
+  const waitTime = (ms) => {
+    let current_date = Date.now();
+    while (current_date + ms > Date.now()) {}
+  }
+
+
 
   const isRealNumber = (num) => {
     if (
@@ -21,6 +30,12 @@ const DestinationTime = () => {
     ) {
       return true;
     }
+  };
+
+  const changeRemainingTime = (value) => {
+    let changedRemainingTime = value;
+    console.log(changedRemainingTime);
+    setRemainingTime(changedRemainingTime);
   };
 
   const changeStartTime = (value) => {
@@ -48,10 +63,7 @@ const DestinationTime = () => {
     changeStartTime(e.currentTarget.value);
   };
 
-  // const waitTime = (ms) => {
-  //   let current_date = Date.now();
-  //   while (current_date + ms > Date.now()) {}
-  // }
+
 
   // const ClickyClicky = () => {
   //   for (let i = startTime; i>=0; i--) {
@@ -60,9 +72,14 @@ const DestinationTime = () => {
   //   }
   // }
 
-  const ClickyClicky = () => {
+  const start = () => {
     changeTimerStart(!timerStart);
+    changeRemainingTime(startTime);
   };
+
+  const clickyClicky = () => {
+
+  }
 
   return (
     <div className={style.timeItem}>
@@ -76,18 +93,18 @@ const DestinationTime = () => {
             placeholder="Seconds between 1 and 120"
           />
           <div>
-            <button onClick={ClickyClicky}>Кнопка тык!</button>
+            <button onClick={start}>Кнопка тык!</button>
           </div>
         </div>
       ) : (
         <div>
           <input
-            value={startTime}
+            value={remainingTime}
             type="text"
             readOnly
           />
           <div>
-            <button onClick={ClickyClicky}>Кнопка пык!</button>
+            <button onClick={clickyClicky}>Кнопка пык!</button>
           </div>
         </div>
       )}
