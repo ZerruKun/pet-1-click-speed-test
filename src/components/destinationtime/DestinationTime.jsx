@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import style from "./DestinationTime.module.css";
 import useDidMountEffect from "../../useDidMountEffect";
+import applicationContext from "../../context";
 
 const DestinationTime = () => {
   const [startTime, setStartTime] = useState("");
 
-  const [remainingTime, setRemainingTime] = useState(0);
+  const {remainingTime, setRemainingTime} = useContext(applicationContext);
 
   const [timerStart, setTimerStart] = useState(false);
 
@@ -24,7 +25,7 @@ const DestinationTime = () => {
       waitTime(10);
     } else {
       changeRemainingTime("Time's up!");
-      changeStartTime(false);
+      changeTimerStart(false);
     }
   }
 
