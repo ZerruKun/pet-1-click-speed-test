@@ -7,11 +7,14 @@ import applicationContext from "./context";
 const Application = () => {
 
   const [remainingTime, setRemainingTime] = useState(0);
-  const [clickCount, setClickCount] = useState(0)
+  const [clickCount, setClickCount] = useState(0);
+  const [lastTime, setLastTime] = useState(0);
+  const [bestTime, setBestTime] = useState(0);
 
   return (
     // <React.StrictMode>
-    <applicationContext.Provider value={{ remainingTime, setRemainingTime, clickCount, setClickCount}}>
+    <applicationContext.Provider value={{ remainingTime, setRemainingTime, clickCount, setClickCount, lastTime, setLastTime, 
+      bestTime, setBestTime}}>
       <App />
     </applicationContext.Provider>
     // </React.StrictMode>

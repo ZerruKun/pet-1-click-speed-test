@@ -4,7 +4,7 @@ import applicationContext from "../../context"
 
 const CurrentResults = () => {
 
-  const {clickCount} = useContext(applicationContext);
+  const {clickCount, bestTime} = useContext(applicationContext);
 
   return (
     <div className={styles.tableItem2}>
@@ -14,6 +14,7 @@ const CurrentResults = () => {
       readOnly 
       />
       <input 
+      value={bestTime}
       readOnly 
       />
       <input 

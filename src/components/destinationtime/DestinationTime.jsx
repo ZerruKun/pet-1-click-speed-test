@@ -6,7 +6,8 @@ import applicationContext from "../../context";
 const DestinationTime = () => {
   const [startTime, setStartTime] = useState("");
 
-  const {remainingTime, setRemainingTime, clickCount, setClickCount} = useContext(applicationContext);
+  const {remainingTime, setRemainingTime, clickCount, setClickCount, 
+    lastTime, setLastTime, bestTime, setBestTime} = useContext(applicationContext);
 
   const [timerStart, setTimerStart] = useState(false);
 
@@ -24,8 +25,12 @@ const DestinationTime = () => {
       changeRemainingTime((remainingTime-0.01).toFixed(2));
       waitTime(10);
     } else {
-      changeRemainingTime("Time's up!");
+      changeStartTime("");
+      changeRemainingTime("");
       changeTimerStart(false);
+      changeClickCount(0);
+      changeLastTime(0);
+      changeBestTime(0);
     }
   }
 
@@ -48,27 +53,40 @@ const DestinationTime = () => {
 
   const changeRemainingTime = (value) => {
     let changedRemainingTime = value;
-    console.log(changedRemainingTime);
+    // console.log(changedRemainingTime);
     setRemainingTime(changedRemainingTime);
   };
 
   const changeStartTime = (value) => {
     let changedStartTime = value;
-    console.log(changedStartTime);
+    // console.log(changedStartTime);
     setStartTime(changedStartTime);
   };
 
   const changeTimerStart = (value) => {
     let isStarted = value;
-    console.log(isStarted);
+    // console.log(isStarted);
     setTimerStart(isStarted);
   };
 
   const changeClickCount = (value) => {
     let changedClickCount = value;
-    console.log(changedClickCount);
+    // console.log(changedClickCount);
     setClickCount(changedClickCount);
   };
+
+  const changeLastTime = (value) => {
+    let changedLastTime = value;
+    console.log("changedLastTime "+changedLastTime);
+    setLastTime(changedLastTime);
+  };
+
+  const changeBestTime = (value) => {
+    let changedBestTime = value;
+    console.log("changedBestTime "+changedBestTime);
+    setBestTime(changedBestTime);
+  };
+
 
   const checkStartTime = (e) => {
     if (e.currentTarget.value > 120) {
@@ -95,13 +113,31 @@ const DestinationTime = () => {
   };
 
   const clickyClicky = () => {
-    changeClickCount(clickCount+1);
+    if (clickCount === 0) {
+      changeClickCount(1);
+      changeBestTime((startTime - remainingTime).toFixed(2));
+      changeLastTime(remainingTime);
+    }
+    if (clickCount > 0) {
+      if(lastTime - remainingTime < bestTime) {
+        changeBestTime((lastTime - remainingTime).toFixed(2));
+        changeClickCount(clickCount+1);
+        changeLastTime(remainingTime);
+        // console.log("Вариант1");
+      }
+      else {
+        changeClickCount(clickCount+1);
+        changeLastTime(remainingTime);
+        // console.log("Вариант2");
+      }
+    }
+    
   }
 
   return (
     <div className={style.timeItem}>
       <h3>Enter destination time</h3>
-      {!timerStart ? (
+      { timerStart===false ? (
         <div>
           <input
             value={startTime}
