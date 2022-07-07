@@ -10,11 +10,12 @@ const Application = () => {
   const [clickCount, setClickCount] = useState(0);
   const [lastTime, setLastTime] = useState(0);
   const [bestTime, setBestTime] = useState(0);
+  const [averageTime, setAverageTime] = useState(0);
 
   return (
     // <React.StrictMode>
     <applicationContext.Provider value={{ remainingTime, setRemainingTime, clickCount, setClickCount, lastTime, setLastTime, 
-      bestTime, setBestTime}}>
+      bestTime, setBestTime, averageTime, setAverageTime}}>
       <App />
     </applicationContext.Provider>
     // </React.StrictMode>

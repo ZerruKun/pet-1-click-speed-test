@@ -6,10 +6,10 @@ import applicationContext from "../../context";
 const DestinationTime = () => {
   const [startTime, setStartTime] = useState("");
 
-  const {remainingTime, setRemainingTime, clickCount, setClickCount, 
-    lastTime, setLastTime, bestTime, setBestTime} = useContext(applicationContext);
-
   const [timerStart, setTimerStart] = useState(false);
+
+  const {remainingTime, setRemainingTime, clickCount, setClickCount, 
+    lastTime, setLastTime, bestTime, setBestTime, setAverageTime} = useContext(applicationContext);
 
   useDidMountEffect (() => {
       timeTick();
@@ -28,9 +28,10 @@ const DestinationTime = () => {
       changeStartTime("");
       changeRemainingTime("");
       changeTimerStart(false);
-      changeClickCount(0);
-      changeLastTime(0);
-      changeBestTime(0);
+      // changeClickCount(0);
+      // changeLastTime(0);
+      // changeBestTime(0);
+      // setAverageTime(0);
     }
   }
 
@@ -77,14 +78,20 @@ const DestinationTime = () => {
 
   const changeLastTime = (value) => {
     let changedLastTime = value;
-    console.log("changedLastTime "+changedLastTime);
+    // console.log("changedLastTime "+ changedLastTime);
     setLastTime(changedLastTime);
   };
 
   const changeBestTime = (value) => {
     let changedBestTime = value;
-    console.log("changedBestTime "+changedBestTime);
+    // console.log("changedBestTime "+ changedBestTime);
     setBestTime(changedBestTime);
+  };
+
+  const changeAverageTime = (value) => {
+    let changedAverageTime = value;
+    console.log("changedAverageTime "+ changedAverageTime);
+    setAverageTime(changedAverageTime);
   };
 
 
@@ -117,17 +124,20 @@ const DestinationTime = () => {
       changeClickCount(1);
       changeBestTime((startTime - remainingTime).toFixed(2));
       changeLastTime(remainingTime);
+      changeAverageTime((startTime - remainingTime).toFixed(2));
     }
     if (clickCount > 0) {
       if(lastTime - remainingTime < bestTime) {
         changeBestTime((lastTime - remainingTime).toFixed(2));
         changeClickCount(clickCount+1);
         changeLastTime(remainingTime);
+        changeAverageTime(((startTime - remainingTime) / clickCount).toFixed(2));
         // console.log("Вариант1");
       }
       else {
         changeClickCount(clickCount+1);
         changeLastTime(remainingTime);
+        changeAverageTime(((startTime - remainingTime) / clickCount).toFixed(2));
         // console.log("Вариант2");
       }
     }
