@@ -8,8 +8,9 @@
     display: grid;
     margin: 0 auto;
     grid-template-areas:
-    "time time time"
-    "table1 . table2";
+    "time"
+    "table1"
+    "table2";
     grid-template-rows: auto;
     grid-template-columns: auto;
     text-align: center;

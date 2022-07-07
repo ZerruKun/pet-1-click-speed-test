@@ -10,8 +10,8 @@ const Main = () => {
       {/* Пока только для первой страницы */}
       <div className={styles.cspContainer}>
         <DestinationTime />
-        <LastTenResults />
         <CurrentResults />
+        <LastTenResults />
       </div>
     </div>
   );
