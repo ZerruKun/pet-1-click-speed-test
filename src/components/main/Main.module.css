@@ -8,20 +8,11 @@
     display: grid;
     margin: 0 auto;
     grid-template-areas:
-    "time time time"
-    "table1 . table2";
+    "time"
+    "table1"
+    "table2";
     grid-template-rows: auto;
     grid-template-columns: auto;
     text-align: center;
     justify-content: center;
-}
-
-.tableItem1 {
-    grid-area: table1;
-    background-color: blue;
-}
-
-.tableItem2 {
-    grid-area: table2;
-    background-color: blue;
 }

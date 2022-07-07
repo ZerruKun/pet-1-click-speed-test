@@ -1,29 +1,17 @@
 import React from "react";
+import CurrentResults from "../currentResult/CurrentResults";
 import DestinationTime from "../destinationtime/DestinationTime";
+import LastTenResults from "../lastTenResults/LastTenResults";
 import styles from "./Main.module.css";
 
 const Main = () => {
-
   return (
     <div className={styles.mainItem}>
       {/* Пока только для первой страницы */}
       <div className={styles.cspContainer}>
         <DestinationTime />
-        <div className={styles.tableItem1}>
-          <h3>Таблица1</h3>
-        </div>
-        <div className={styles.tableItem2}>
-          <h3>Таблица2</h3>
-          <input 
-            readOnly
-          />
-          <input 
-            readOnly
-          />
-          <input 
-            readOnly
-          />
-        </div>
+        <CurrentResults />
+        <LastTenResults />
       </div>
     </div>
   );
