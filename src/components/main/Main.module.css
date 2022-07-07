@@ -15,8 +15,3 @@
     text-align: center;
     justify-content: center;
 }
-
-.tableItem1 {
-    grid-area: table1;
-    background-color: blue;
-}
