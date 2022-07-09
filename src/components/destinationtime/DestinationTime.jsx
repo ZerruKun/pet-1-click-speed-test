@@ -19,7 +19,10 @@ const DestinationTime = () => {
     setLastTime,
     bestTime,
     setBestTime,
+    averageTime,
     setAverageTime,
+    lastResults,
+    setLastResults,
   } = useContext(applicationContext);
 
   useDidMountEffect(() => {
@@ -39,6 +42,7 @@ const DestinationTime = () => {
       changeStartTime("");
       changeRemainingTime("");
       changeTimerStart(false);
+      changeLastResults(clickCount, bestTime, averageTime);
       // changeClickCount(0);
       // changeLastTime(0);
       // changeBestTime(0);
@@ -107,8 +111,15 @@ const DestinationTime = () => {
 
   const changeSetIsCanStart = (value) => {
     let changedIsCanStart = value;
-    console.log("changedIsCanStart " + changedIsCanStart);
+    // console.log("changedIsCanStart " + changedIsCanStart);
     setIsCanStart(changedIsCanStart);
+  };
+
+  const changeLastResults = (count, best, average) => {
+    let changedLastResults = {count, best, average};
+    console.log("changedLastResults " + changedLastResults);
+    setLastResults(changedLastResults);
+    console.log(lastResults);
   };
 
   const checkStartTime = (e) => {
@@ -122,7 +133,7 @@ const DestinationTime = () => {
       e.currentTarget.value = filteredTime.join("");
     }
     changeStartTime(e.currentTarget.value);
-    if (e.currentTarget.value === "0" || e.currentTarget.value === "") {
+    if (e.currentTarget.value === "") {
       changeSetIsCanStart(false);
     } else {
       changeSetIsCanStart(true);
@@ -130,14 +141,17 @@ const DestinationTime = () => {
   };
 
   const start = () => {
-    if (startTime === "") {
-      changeTimerStart(true);
-      changeStartTime(2);
-      changeRemainingTime(2);
-    } else {
-      changeTimerStart(true);
-      changeRemainingTime(startTime);
-    }
+    // if (startTime === "") {
+    //   changeTimerStart(true);
+    //   changeStartTime(2);
+    //   changeRemainingTime(2);
+    // } else {
+    //   changeTimerStart(true);
+    //   changeRemainingTime(startTime);
+    // }
+    // changeSetIsCanStart(false);
+    changeTimerStart(true);
+    changeRemainingTime(startTime);
     changeSetIsCanStart(false);
   };
 
