@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext} from "react";
 import style from "./DestinationTime.module.css";
 import useDidMountEffect from "../../useDidMountEffect";
 import applicationContext from "../../context";
@@ -8,32 +8,47 @@ const DestinationTime = () => {
 
   const [timerStart, setTimerStart] = useState(false);
 
-  const {remainingTime, setRemainingTime, clickCount, setClickCount, 
-    lastTime, setLastTime, bestTime, setBestTime, setAverageTime} = useContext(applicationContext);
+  const [isCanStart, setIsCanStart] = useState(false);
 
-  useDidMountEffect (() => {
-      timeTick();
-  }, [remainingTime])
+  const {
+    remainingTime,
+    setRemainingTime,
+    clickCount,
+    setClickCount,
+    lastTime,
+    setLastTime,
+    bestTime,
+    setBestTime,
+    averageTime,
+    setAverageTime,
+    lastResults,
+    setLastResults,
+  } = useContext(applicationContext);
+
+  useDidMountEffect(() => {
+    timeTick();
+  }, [remainingTime]);
 
   const waitTime = (ms) => {
     let current_date = Date.now();
     while (current_date + ms > Date.now()) {}
-  }
+  };
 
   const timeTick = () => {
-    if(remainingTime > 0) {
-      changeRemainingTime((remainingTime-0.01).toFixed(2));
+    if (remainingTime > 0) {
+      changeRemainingTime((remainingTime - 0.01).toFixed(2));
       waitTime(10);
     } else {
       changeStartTime("");
       changeRemainingTime("");
       changeTimerStart(false);
-      // changeClickCount(0);
-      // changeLastTime(0);
-      // changeBestTime(0);
-      // setAverageTime(0);
+      changeLastResults(clickCount, bestTime, averageTime);
+      changeClickCount(0);
+      changeLastTime(0);
+      changeBestTime(0);
+      setAverageTime(0);
     }
-  }
+  };
 
   const isRealNumber = (num) => {
     if (
@@ -90,10 +105,22 @@ const DestinationTime = () => {
 
   const changeAverageTime = (value) => {
     let changedAverageTime = value;
-    console.log("changedAverageTime "+ changedAverageTime);
+    // console.log("changedAverageTime "+ changedAverageTime);
     setAverageTime(changedAverageTime);
   };
 
+  const changeSetIsCanStart = (value) => {
+    let changedIsCanStart = value;
+    // console.log("changedIsCanStart " + changedIsCanStart);
+    setIsCanStart(changedIsCanStart);
+  };
+
+  const changeLastResults = (count, best, average) => {
+    let changedLastResults = {count, best, average};
+    console.log("changedLastResults " + changedLastResults);
+    setLastResults(changedLastResults);
+    console.log(lastResults);
+  };
 
   const checkStartTime = (e) => {
     if (e.currentTarget.value > 120) {
@@ -106,17 +133,26 @@ const DestinationTime = () => {
       e.currentTarget.value = filteredTime.join("");
     }
     changeStartTime(e.currentTarget.value);
+    if (e.currentTarget.value === "") {
+      changeSetIsCanStart(false);
+    } else {
+      changeSetIsCanStart(true);
+    }
   };
 
   const start = () => {
-    if(startTime === "") {
-      changeTimerStart(true);
-      changeStartTime(2);
-      changeRemainingTime(2);
-    } else {
-      changeTimerStart(true);
-      changeRemainingTime(startTime);
-    }
+    // if (startTime === "") {
+    //   changeTimerStart(true);
+    //   changeStartTime(2);
+    //   changeRemainingTime(2);
+    // } else {
+    //   changeTimerStart(true);
+    //   changeRemainingTime(startTime);
+    // }
+    // changeSetIsCanStart(false);
+    changeTimerStart(true);
+    changeRemainingTime(startTime);
+    changeSetIsCanStart(false);
   };
 
   const clickyClicky = () => {
@@ -127,51 +163,55 @@ const DestinationTime = () => {
       changeAverageTime((startTime - remainingTime).toFixed(2));
     }
     if (clickCount > 0) {
-      if(lastTime - remainingTime < bestTime) {
+      if (lastTime - remainingTime < bestTime) {
         changeBestTime((lastTime - remainingTime).toFixed(2));
-        changeClickCount(clickCount+1);
+        changeClickCount(clickCount + 1);
         changeLastTime(remainingTime);
-        changeAverageTime(((startTime - remainingTime) / clickCount).toFixed(2));
+        changeAverageTime(
+          ((startTime - remainingTime) / clickCount).toFixed(2)
+        );
         // console.log("Вариант1");
-      }
-      else {
-        changeClickCount(clickCount+1);
+      } else {
+        changeClickCount(clickCount + 1);
         changeLastTime(remainingTime);
-        changeAverageTime(((startTime - remainingTime) / clickCount).toFixed(2));
+        changeAverageTime(
+          ((startTime - remainingTime) / clickCount).toFixed(2)
+        );
         // console.log("Вариант2");
       }
     }
-    
-  }
+  };
 
   return (
     <div className={style.timeItem}>
-      <h3>Enter destination time</h3>
-      { timerStart===false ? (
+      {timerStart === false ? (
         <div>
+          <h3>Enter destination time</h3>
           <input
             value={startTime}
             type="text"
             onChange={checkStartTime}
             placeholder="Seconds between 1 and 120"
           />
-          <div>
-            <button onClick={start}>Start</button>
-          </div>
         </div>
       ) : (
         <div>
-          <input
-            value={remainingTime}
-            type="text"
-            readOnly
-          />
+          <h3>Click as fast as you can!</h3>
+          <input value={remainingTime} type="text" readOnly />
           <div>
             <button onClick={clickyClicky}>Click!</button>
           </div>
         </div>
       )}
-
+      {isCanStart === true ? (
+        <div>
+          <div>
+            <button onClick={start}>Start</button>
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
