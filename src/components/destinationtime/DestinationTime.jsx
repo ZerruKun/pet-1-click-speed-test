@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext} from "react";
 import style from "./DestinationTime.module.css";
 import useDidMountEffect from "../../useDidMountEffect";
 import applicationContext from "../../context";
@@ -43,10 +43,10 @@ const DestinationTime = () => {
       changeRemainingTime("");
       changeTimerStart(false);
       changeLastResults(clickCount, bestTime, averageTime);
-      // changeClickCount(0);
-      // changeLastTime(0);
-      // changeBestTime(0);
-      // setAverageTime(0);
+      changeClickCount(0);
+      changeLastTime(0);
+      changeBestTime(0);
+      setAverageTime(0);
     }
   };
 
