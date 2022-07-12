@@ -1,7 +1,7 @@
-import React from "react";
+import React, {memo} from "react";
 import styles from "./Sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = memo(() => {
   return (
     <div className={styles.sidebarItem}>
       <ul>
@@ -11,6 +11,6 @@ const Sidebar = () => {
       </ul>
     </div>
   );
-};
+});
 
 export default Sidebar;
