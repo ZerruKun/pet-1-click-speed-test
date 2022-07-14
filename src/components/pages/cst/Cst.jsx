@@ -1,10 +1,10 @@
 import React, {memo}  from "react";
-import CurrentResults from "../currentResult/CurrentResults";
-import DestinationTime from "../destinationtime/DestinationTime";
-import LastTenResults from "../lastTenResults/LastTenResults";
-import styles from "./Main.module.css";
+import CurrentResults from "../../currentResult/CurrentResults";
+import DestinationTime from "../../destinationtime/DestinationTime";
+import LastTenResults from "../../lastTenResults/LastTenResults";
+import styles from "./Cst.module.css";
 
-const Main = memo(() => {
+const Cst = memo(() => {
   return (
     <div className={styles.mainItem}>
       {/* Пока только для первой страницы */}
@@ -17,4 +17,4 @@ const Main = memo(() => {
   );
 });
 
-export default Main;
+export default Cst;

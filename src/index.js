@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import applicationContext from "./context";
+import { BrowserRouter } from "react-router-dom";
 
 const Application = () => {
 
@@ -15,10 +16,12 @@ const Application = () => {
 
   return (
     // <React.StrictMode>
-    <applicationContext.Provider value={{ remainingTime, setRemainingTime, clickCount, setClickCount, lastTime, setLastTime, 
-      bestTime, setBestTime, averageTime, setAverageTime, lastResults, setLastResults}}>
-      <App />
-    </applicationContext.Provider>
+    <BrowserRouter>
+      <applicationContext.Provider value={{ remainingTime, setRemainingTime, clickCount, setClickCount, lastTime, setLastTime, 
+        bestTime, setBestTime, averageTime, setAverageTime, lastResults, setLastResults}}>
+        <App />
+      </applicationContext.Provider>
+    </BrowserRouter>
     // </React.StrictMode>
   );
 };
