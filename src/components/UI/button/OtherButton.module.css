@@ -1,0 +1,11 @@
+.otherButton {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    padding: 5px 15px;
+    color: white;
+    font-size: 30px;
+    background: transparent;
+    border: 2px solid black;
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React, { useState, useContext} from "react";
 import style from "./DestinationTime.module.css";
 import useDidMountEffect from "../../useDidMountEffect";
 import applicationContext from "../../context";
+import OtherButton from "../UI/button/OtherButton";
 
 const DestinationTime = () => {
   
@@ -185,14 +186,14 @@ const DestinationTime = () => {
 
   return (
     <div className={style.timeItem}>
-      {timerStart === false ? (
+      {timerStart === false ? ( 
         <div>
           <h3>Enter destination time</h3>
           <input
             value={startTime}
             type="text"
             onChange={checkStartTime}
-            placeholder="Seconds between 1 and 120"
+            placeholder="1 - 120"
           />
         </div>
       ) : (
@@ -200,16 +201,21 @@ const DestinationTime = () => {
           <h3>Click as fast as you can!</h3>
           <input value={remainingTime} type="text" readOnly />
           <div>
-            <button onClick={clickyClicky}>Click!</button>
+            <OtherButton onClick={clickyClicky}>Click!</OtherButton>
           </div>
         </div>
       )}
       {isCanStart === true ? (
         <div>
           <div>
-            <button onClick={start}>Start</button>
+            <OtherButton onClick={start}>Start</OtherButton>
           </div>
         </div>
+      ) : (
+        <div></div>
+      )}
+      {timerStart === false && isCanStart === false ? (
+        <div className={style.noButtonDiv}><h3>Seconds between 1 and 120</h3></div>
       ) : (
         <div></div>
       )}

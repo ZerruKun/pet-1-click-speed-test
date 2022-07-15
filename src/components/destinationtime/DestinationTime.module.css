@@ -2,3 +2,8 @@
     grid-area: time;
     background-color: aquamarine;
 }
+
+.noButtonDiv {
+    height: 141px;
+    font-weight: bold;
+}
