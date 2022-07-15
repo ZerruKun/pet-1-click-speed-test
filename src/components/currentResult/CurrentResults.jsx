@@ -8,7 +8,7 @@ const CurrentResults = () => {
 
   return (
     <div className={styles.tableItem2}>
-      <h3>Current results</h3>
+      <h3>Текущий результат</h3>
       <input 
       value={clickCount}
       readOnly 

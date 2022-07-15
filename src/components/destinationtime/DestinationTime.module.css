@@ -4,6 +4,8 @@
 }
 
 .noButtonDiv {
+    padding-left: 10px;
+    padding-right: 10px;
     height: 141px;
     font-weight: bold;
 }

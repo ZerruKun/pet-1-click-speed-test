@@ -4,7 +4,7 @@ import styles from "./Footer.module.css"
 const Footer = memo(() => {
   return (
     <div className={styles.footerItem}>
-      <h2>Your ad could have been here</h2>
+      <h2>Здесь могла быть ваша реклама :)</h2>
     </div>
   );
 });

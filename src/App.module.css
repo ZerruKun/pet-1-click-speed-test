@@ -8,7 +8,7 @@
     "sidebar main"
     "footer footer";
     grid-template-rows: 5em auto 5em;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 20% 80%;
 }
 
 

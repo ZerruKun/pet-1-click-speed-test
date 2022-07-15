@@ -188,7 +188,7 @@ const DestinationTime = () => {
     <div className={style.timeItem}>
       {timerStart === false ? ( 
         <div>
-          <h3>Enter destination time</h3>
+          <h3>Введите время в секундах</h3>
           <input
             value={startTime}
             type="text"
@@ -198,24 +198,24 @@ const DestinationTime = () => {
         </div>
       ) : (
         <div>
-          <h3>Click as fast as you can!</h3>
+          <h3>Кликайте как можно быстрее!</h3>
           <input value={remainingTime} type="text" readOnly />
           <div>
-            <OtherButton onClick={clickyClicky}>Click!</OtherButton>
+            <OtherButton onClick={clickyClicky}>Клик!</OtherButton>
           </div>
         </div>
       )}
       {isCanStart === true ? (
         <div>
           <div>
-            <OtherButton onClick={start}>Start</OtherButton>
+            <OtherButton onClick={start}>Старт</OtherButton>
           </div>
         </div>
       ) : (
         <div></div>
       )}
       {timerStart === false && isCanStart === false ? (
-        <div className={style.noButtonDiv}><h3>Seconds between 1 and 120</h3></div>
+        <div className={style.noButtonDiv}><h3>Допустимы целые значения от 1 до 120</h3></div>
       ) : (
         <div></div>
       )}

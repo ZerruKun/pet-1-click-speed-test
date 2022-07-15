@@ -45,7 +45,7 @@ const LastTenResults = () => {
 
   return (
     <div className={styles.tableItem1}>
-      <h3>Last 10 results</h3>
+      <h3>Последние 10 результатов</h3>
       {results}
     </div>
   );

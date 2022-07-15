@@ -16,13 +16,13 @@ const Sidebar = memo(() => {
     <div className={styles.sidebarItem}>
       <ul className={styles.sidebarLink}>
         <NavLink style={navLinkStyles} to="/cst">
-          <li>Click Speed Test</li>
+          <li>Тест скорости клика</li>
         </NavLink>
         <NavLink style={navLinkStyles} to="/whatiscps">
-          <li>What is CPS?</li>
+          <li>Что такое КПС</li>
         </NavLink>
         <NavLink style={navLinkStyles} to="/about">
-          <li>About</li>
+          <li>О проекте</li>
         </NavLink>
       </ul>
     </div>
