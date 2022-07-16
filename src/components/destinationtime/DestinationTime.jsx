@@ -41,10 +41,10 @@ const DestinationTime = () => {
       changeRemainingTime((remainingTime - 0.01).toFixed(2));
       waitTime(10);
     } else {
+      changeLastResults(clickCount, bestTime, averageTime);
       changeStartTime("");
       changeRemainingTime("");
       changeTimerStart(false);
-      changeLastResults(clickCount, bestTime, averageTime);
       changeClickCount(0);
       changeLastTime(0);
       changeBestTime(0);

@@ -8,7 +8,20 @@ const CurrentResults = () => {
 
   return (
     <div className={styles.tableItem2}>
-      <h3>Текущий результат</h3>
+      <table>
+        <caption><b>Текущий результат</b></caption>
+        <thead>
+          <tr>
+            <th>Количество кликов</th> <th>Лучший клик</th> <th>Среднее время клика</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{clickCount}</td><td>{bestTime}</td><td>{averageTime}</td>
+          </tr>
+        </tbody>
+      </table>
+      {/* <h3>Текущий результат</h3>
       <input 
       value={clickCount}
       readOnly 
@@ -20,7 +33,7 @@ const CurrentResults = () => {
       <input 
       value={averageTime}
       readOnly 
-      />
+      /> */}
     </div>
   );
 };
