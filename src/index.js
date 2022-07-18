@@ -13,7 +13,7 @@ const Application = () => {
   const [lastTime, setLastTime] = useState(0);
   const [bestTime, setBestTime] = useState(0);
   const [averageTime, setAverageTime] = useState(0);
-  const [lastResults, setLastResults] = useState({tryNumber:0, count:0, best:0, average:0})
+  const [lastResults, setLastResults] = useState({tryNumber:0, start:0, count:0, best:0, average:0})
   // const [cps, setCps] = useState(0);
 
   return (

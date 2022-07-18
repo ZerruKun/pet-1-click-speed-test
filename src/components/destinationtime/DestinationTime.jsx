@@ -43,7 +43,7 @@ const DestinationTime = () => {
       changeRemainingTime((remainingTime - 0.01).toFixed(2));
       waitTime(10);
     } else {
-      changeLastResults(tryCount, clickCount, bestTime, averageTime);
+      changeLastResults(tryCount, startTime, clickCount, bestTime, averageTime);
       changeStartTime("");
       changeRemainingTime("");
       changeTimerStart(false);
@@ -119,8 +119,8 @@ const DestinationTime = () => {
     setIsCanStart(changedIsCanStart);
   };
 
-  const changeLastResults = (tryNumber, count, best, average) => {
-    let changedLastResults = {tryNumber, count, best, average};
+  const changeLastResults = (tryNumber, start, count, best, average) => {
+    let changedLastResults = {tryNumber, start, count, best, average};
     // console.log("changedLastResults " + changedLastResults);
     setLastResults(changedLastResults);
     // console.log(lastResults);
