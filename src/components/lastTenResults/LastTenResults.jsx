@@ -47,7 +47,8 @@ const LastTenResults = () => {
 
   let resultsTwo = allResults.map((obj) => {
     return (<tr key={nanoid(10)}>
-      <td>{obj.tryNumber}</td><td>{obj.start}</td><td>{obj.count}</td><td>{obj.best}</td><td>{obj.average}</td>
+      <td>{obj.tryNumber}</td><td>{obj.start}</td><td>{obj.count}</td>
+      <td>{obj.best}</td><td>{obj.average}</td><td>{obj.cps}</td>
     </tr>)
   })
 
@@ -57,7 +58,8 @@ const LastTenResults = () => {
       <caption><b>Последние 10 результатов</b></caption>
       <thead>
         <tr>
-          <th>Попытка</th><th>Стартовое время</th><th>Количество кликов</th><th>Лучший клик</th><th>Среднее время клика</th>
+          <th>Попытка</th><th>Стартовое время</th><th>Количество кликов</th>
+          <th>Лучший клик</th><th>Среднее время клика</th><th>Кликов в секунду</th>
         </tr>
       </thead>
       <tbody>{resultsTwo}</tbody>

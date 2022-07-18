@@ -120,7 +120,8 @@ const DestinationTime = () => {
   };
 
   const changeLastResults = (tryNumber, start, count, best, average) => {
-    let changedLastResults = {tryNumber, start, count, best, average};
+    let cps = ((count/start).toFixed(2));
+    let changedLastResults = {tryNumber, start, count, best, average, cps};
     // console.log("changedLastResults " + changedLastResults);
     setLastResults(changedLastResults);
     // console.log(lastResults);
