@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 const Application = () => {
 
   const [remainingTime, setRemainingTime] = useState(0);
-  const [tryNumber, setTryNumber] = useState(0);
+  // const [tryNumber, setTryNumber] = useState(0);
   const [clickCount, setClickCount] = useState(0);
   const [lastTime, setLastTime] = useState(0);
   const [bestTime, setBestTime] = useState(0);

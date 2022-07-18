@@ -42,30 +42,27 @@ const LastTenResults = () => {
   //   </div>
   // })
 
+  //<h3>Последние 10 результатов</h3>
+  // {results}
+
   let resultsTwo = allResults.map((obj) => {
-    return <tr key={nanoid(10)}>
-      <td>{obj.count}</td> <td>{obj.best}</td> <td>{obj.average}</td>
-    </tr>
+    return (<tr key={nanoid(10)}>
+      <td>{obj.count}</td><td>{obj.best}</td><td>{obj.average}</td>
+    </tr>)
   })
 
-
   return (
-    <div className={styles.tableItem1}>
-      {/* <h3>Последние 10 результатов</h3>
-      {results} */}
-      <table>
-        <caption><b>Последние 10 результатов</b></caption>
-        <thead>
-          <tr>
-            <th>Количество кликов</th> <th>Лучший клик</th> <th>Среднее время клика</th>
-          </tr>
-        </thead>
-        <tbody>
-          {resultsTwo}
-        </tbody>
-      </table>
-    </div>
-  );
+  <div className={styles.tableItem1}>
+    <table>
+      <caption><b>Последние 10 результатов</b></caption>
+      <thead>
+        <tr>
+          <th>Количество кликов</th><th>Лучший клик</th><th>Среднее время клика</th>
+        </tr>
+      </thead>
+      <tbody>{resultsTwo}</tbody>
+    </table>
+  </div>);
 };
 
 export default LastTenResults;
