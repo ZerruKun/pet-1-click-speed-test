@@ -12,6 +12,8 @@ const DestinationTime = () => {
 
   const [isCanStart, setIsCanStart] = useState(false);
 
+  const [tryCount, setTryCount] = useState(0);
+
   const {
     remainingTime,
     setRemainingTime,
@@ -23,7 +25,7 @@ const DestinationTime = () => {
     setBestTime,
     averageTime,
     setAverageTime,
-    lastResults,
+    // lastResults,
     setLastResults,
   } = useContext(applicationContext);
 
@@ -41,7 +43,7 @@ const DestinationTime = () => {
       changeRemainingTime((remainingTime - 0.01).toFixed(2));
       waitTime(10);
     } else {
-      changeLastResults(clickCount, bestTime, averageTime);
+      changeLastResults(tryCount, clickCount, bestTime, averageTime);
       changeStartTime("");
       changeRemainingTime("");
       changeTimerStart(false);
@@ -111,17 +113,23 @@ const DestinationTime = () => {
     setAverageTime(changedAverageTime);
   };
 
-  const changeSetIsCanStart = (value) => {
+  const changeIsCanStart = (value) => {
     let changedIsCanStart = value;
     // console.log("changedIsCanStart " + changedIsCanStart);
     setIsCanStart(changedIsCanStart);
   };
 
-  const changeLastResults = (count, best, average) => {
-    let changedLastResults = {count, best, average};
-    console.log("changedLastResults " + changedLastResults);
+  const changeLastResults = (tryNumber, count, best, average) => {
+    let changedLastResults = {tryNumber, count, best, average};
+    // console.log("changedLastResults " + changedLastResults);
     setLastResults(changedLastResults);
-    console.log(lastResults);
+    // console.log(lastResults);
+  };
+
+  const changeTryCount = (value) => {
+    let changedTryCount = value;
+    // console.log("changedTryCount " + changedTryCount);
+    setTryCount(changedTryCount);
   };
 
   const checkStartTime = (e) => {
@@ -136,9 +144,9 @@ const DestinationTime = () => {
     }
     changeStartTime(e.currentTarget.value);
     if (e.currentTarget.value === "") {
-      changeSetIsCanStart(false);
+      changeIsCanStart(false);
     } else {
-      changeSetIsCanStart(true);
+      changeIsCanStart(true);
     }
   };
 
@@ -152,9 +160,10 @@ const DestinationTime = () => {
     //   changeRemainingTime(startTime);
     // }
     // changeSetIsCanStart(false);
+    changeTryCount(tryCount+1);
     changeTimerStart(true);
     changeRemainingTime(startTime);
-    changeSetIsCanStart(false);
+    changeIsCanStart(false);
   };
 
   const clickyClicky = () => {
