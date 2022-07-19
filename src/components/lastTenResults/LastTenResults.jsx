@@ -59,7 +59,7 @@ const LastTenResults = () => {
       <thead>
         <tr>
           <th>Попытка</th><th>Стартовое время</th><th>Количество кликов</th>
-          <th>Лучший клик</th><th>Среднее время клика</th><th>Кликов в секунду</th>
+          <th>Лучший клик</th><th>Среднее время клика</th><th>КПС</th>
         </tr>
       </thead>
       <tbody>{resultsTwo}</tbody>
