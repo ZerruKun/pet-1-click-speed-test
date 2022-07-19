@@ -2,3 +2,21 @@
     grid-area: table2;
     background-color: deepskyblue;
 }
+
+.mainTable {
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+    border-collapse: collapse;
+}
+
+.mainTable caption {
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-size: 18px;
+}
+
+.mainTable th, .mainTable td {
+    padding: 0px 7px;
+    border: 1px solid dodgerblue;
+}

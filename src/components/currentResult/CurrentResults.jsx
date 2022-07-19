@@ -6,8 +6,9 @@ const CurrentResults = () => {
 
   const {clickCount, bestTime, averageTime} = useContext(applicationContext);
 
-  return (<div className={styles.tableItem2}>
-    <table>
+  return (
+  <div className={styles.tableItem2}>
+    <table className={styles.mainTable}>
       <caption><b>Текущий результат</b></caption>
       <thead>
         <tr>

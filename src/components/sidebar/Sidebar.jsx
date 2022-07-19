@@ -19,7 +19,7 @@ const Sidebar = memo(() => {
           <li>Тест скорости клика</li>
         </NavLink>
         <NavLink style={navLinkStyles} to="/whatiscps">
-          <li>Что такое КПС</li>
+          <li>Что такое КПС?</li>
         </NavLink>
       </ul>
     </div>

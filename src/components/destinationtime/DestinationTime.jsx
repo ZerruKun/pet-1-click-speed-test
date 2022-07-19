@@ -196,6 +196,7 @@ const DestinationTime = () => {
 
   return (
     <div className={style.timeItem}>
+      <h2>Тест скорости клика</h2>
       {timerStart === false ? ( 
         <div>
           <h3>Введите время в секундах</h3>
