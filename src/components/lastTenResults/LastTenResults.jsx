@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import styles from "./LastTenResults.module.css";
-import applicationContext from "../../context";
-import useDidMountEffect from "../../useDidMountEffect";
+import applicationContext from "../context/context";
+import useDidMountEffect from "../hooks/useDidMountEffect";
 import { nanoid } from 'nanoid';
 
 const LastTenResults = () => {
@@ -15,7 +15,6 @@ const LastTenResults = () => {
       allResults.shift();
     }
     let changedAllResults = [...allResults, value];
-    // console.log("changedAllResults " + changedAllResults);
     setAllResults(changedAllResults);
   };
 
@@ -24,26 +23,6 @@ const LastTenResults = () => {
         changeAllResults(lastResults);
       }
   }, [lastResults.count])
-
-  // let results = allResults.map((obj) => {
-  //   return <div key={nanoid(10)}>
-  //     <input
-  //     value={obj.count} 
-  //     readOnly 
-  //     />
-  //     <input
-  //     value={obj.best}  
-  //     readOnly 
-  //     />
-  //     <input 
-  //     value={obj.average} 
-  //     readOnly 
-  //     />
-  //   </div>
-  // })
-
-  //<h3>Последние 10 результатов</h3>
-  // {results}
 
   let resultsTwo = allResults.map((obj) => {
     return (<tr key={nanoid(10)}>

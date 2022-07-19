@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./App.module.css";
+import styles from "./components/styles/App.module.css";
 import Header from "./components/header/Header";
 import Cst from "./components/pages/cst/Cst";
 import WhatIsCps from "./components/pages/whatIsCps/WhatIsCps";

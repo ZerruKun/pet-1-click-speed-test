@@ -7,7 +7,6 @@ import styles from "./Cst.module.css";
 const Cst = memo(() => {
   return (
     <div className={styles.mainItem}>
-      {/* Пока только для первой страницы */}
       <div className={styles.cspContainer}>
         <DestinationTime />
         <CurrentResults />

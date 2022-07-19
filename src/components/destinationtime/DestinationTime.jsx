@@ -1,18 +1,15 @@
 import React, { useState, useContext} from "react";
 import style from "./DestinationTime.module.css";
-import useDidMountEffect from "../../useDidMountEffect";
-import applicationContext from "../../context";
+import useDidMountEffect from "../hooks/useDidMountEffect";
+import applicationContext from "../context/context";
 
 const DestinationTime = () => {
   
   const [startTime, setStartTime] = useState("");
-
   const [timerStart, setTimerStart] = useState(false);
-
   const [isCanStart, setIsCanStart] = useState(false);
-
   const [tryCount, setTryCount] = useState(0);
-
+  
   const {
     remainingTime,
     setRemainingTime,
@@ -24,7 +21,6 @@ const DestinationTime = () => {
     setBestTime,
     averageTime,
     setAverageTime,
-    // lastResults,
     setLastResults,
   } = useContext(applicationContext);
 
@@ -72,63 +68,52 @@ const DestinationTime = () => {
 
   const changeRemainingTime = (value) => {
     let changedRemainingTime = value;
-    // console.log(changedRemainingTime);
     setRemainingTime(changedRemainingTime);
   };
 
   const changeStartTime = (value) => {
     let changedStartTime = value;
-    // console.log(changedStartTime);
     setStartTime(changedStartTime);
   };
 
   const changeTimerStart = (value) => {
     let isStarted = value;
-    // console.log(isStarted);
     setTimerStart(isStarted);
   };
 
   const changeClickCount = (value) => {
     let changedClickCount = value;
-    // console.log(changedClickCount);
     setClickCount(changedClickCount);
   };
 
   const changeLastTime = (value) => {
     let changedLastTime = value;
-    // console.log("changedLastTime "+ changedLastTime);
     setLastTime(changedLastTime);
   };
 
   const changeBestTime = (value) => {
     let changedBestTime = value;
-    // console.log("changedBestTime "+ changedBestTime);
     setBestTime(changedBestTime);
   };
 
   const changeAverageTime = (value) => {
     let changedAverageTime = value;
-    // console.log("changedAverageTime "+ changedAverageTime);
     setAverageTime(changedAverageTime);
   };
 
   const changeIsCanStart = (value) => {
     let changedIsCanStart = value;
-    // console.log("changedIsCanStart " + changedIsCanStart);
     setIsCanStart(changedIsCanStart);
   };
 
   const changeLastResults = (tryNumber, start, count, best, average) => {
     let cps = ((count/start).toFixed(2));
     let changedLastResults = {tryNumber, start, count, best, average, cps};
-    // console.log("changedLastResults " + changedLastResults);
     setLastResults(changedLastResults);
-    // console.log(lastResults);
   };
 
   const changeTryCount = (value) => {
     let changedTryCount = value;
-    // console.log("changedTryCount " + changedTryCount);
     setTryCount(changedTryCount);
   };
 
@@ -151,15 +136,6 @@ const DestinationTime = () => {
   };
 
   const start = () => {
-    // if (startTime === "") {
-    //   changeTimerStart(true);
-    //   changeStartTime(2);
-    //   changeRemainingTime(2);
-    // } else {
-    //   changeTimerStart(true);
-    //   changeRemainingTime(startTime);
-    // }
-    // changeSetIsCanStart(false);
     changeTryCount(tryCount+1);
     changeTimerStart(true);
     changeRemainingTime(startTime);
@@ -181,14 +157,12 @@ const DestinationTime = () => {
         changeAverageTime(
           ((startTime - remainingTime) / clickCount).toFixed(2)
         );
-        // console.log("Вариант1");
       } else {
         changeClickCount(clickCount + 1);
         changeLastTime(remainingTime);
         changeAverageTime(
           ((startTime - remainingTime) / clickCount).toFixed(2)
         );
-        // console.log("Вариант2");
       }
     }
   };

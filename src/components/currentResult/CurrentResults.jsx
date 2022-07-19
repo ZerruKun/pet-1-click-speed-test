@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./CurrentResults.module.css"
-import applicationContext from "../../context"
+import applicationContext from "../context/context"
 
 const CurrentResults = () => {
 
