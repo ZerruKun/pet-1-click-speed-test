@@ -1,0 +1,21 @@
+.whatIsCpsConreiner {
+    padding: 10px;
+    background-color: aquamarine;;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0px 7px;
+    border: 1px solid dodgerblue;
+}

@@ -1,4 +1,21 @@
 .tableItem2 {
     grid-area: table1;
-    background-color: blue;
+    background-color: deepskyblue;
+}
+
+.mainTable {
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+    border-collapse: collapse;
+}
+
+.mainTable caption {
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.mainTable th, .mainTable td {
+    padding: 0px 7px;
+    border: 1px solid dodgerblue;
 }

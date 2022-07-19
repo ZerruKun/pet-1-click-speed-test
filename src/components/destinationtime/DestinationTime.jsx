@@ -1,15 +1,15 @@
 import React, { useState, useContext} from "react";
 import style from "./DestinationTime.module.css";
-import useDidMountEffect from "../../useDidMountEffect";
-import applicationContext from "../../context";
+import useDidMountEffect from "../hooks/useDidMountEffect";
+import applicationContext from "../context/context";
 
 const DestinationTime = () => {
+  
   const [startTime, setStartTime] = useState("");
-
   const [timerStart, setTimerStart] = useState(false);
-
   const [isCanStart, setIsCanStart] = useState(false);
-
+  const [tryCount, setTryCount] = useState(0);
+  
   const {
     remainingTime,
     setRemainingTime,
@@ -21,7 +21,6 @@ const DestinationTime = () => {
     setBestTime,
     averageTime,
     setAverageTime,
-    lastResults,
     setLastResults,
   } = useContext(applicationContext);
 
@@ -39,10 +38,10 @@ const DestinationTime = () => {
       changeRemainingTime((remainingTime - 0.01).toFixed(2));
       waitTime(10);
     } else {
+      changeLastResults(tryCount, startTime, clickCount, bestTime, averageTime);
       changeStartTime("");
       changeRemainingTime("");
       changeTimerStart(false);
-      changeLastResults(clickCount, bestTime, averageTime);
       changeClickCount(0);
       changeLastTime(0);
       changeBestTime(0);
@@ -69,57 +68,53 @@ const DestinationTime = () => {
 
   const changeRemainingTime = (value) => {
     let changedRemainingTime = value;
-    // console.log(changedRemainingTime);
     setRemainingTime(changedRemainingTime);
   };
 
   const changeStartTime = (value) => {
     let changedStartTime = value;
-    // console.log(changedStartTime);
     setStartTime(changedStartTime);
   };
 
   const changeTimerStart = (value) => {
     let isStarted = value;
-    // console.log(isStarted);
     setTimerStart(isStarted);
   };
 
   const changeClickCount = (value) => {
     let changedClickCount = value;
-    // console.log(changedClickCount);
     setClickCount(changedClickCount);
   };
 
   const changeLastTime = (value) => {
     let changedLastTime = value;
-    // console.log("changedLastTime "+ changedLastTime);
     setLastTime(changedLastTime);
   };
 
   const changeBestTime = (value) => {
     let changedBestTime = value;
-    // console.log("changedBestTime "+ changedBestTime);
     setBestTime(changedBestTime);
   };
 
   const changeAverageTime = (value) => {
     let changedAverageTime = value;
-    // console.log("changedAverageTime "+ changedAverageTime);
     setAverageTime(changedAverageTime);
   };
 
-  const changeSetIsCanStart = (value) => {
+  const changeIsCanStart = (value) => {
     let changedIsCanStart = value;
-    // console.log("changedIsCanStart " + changedIsCanStart);
     setIsCanStart(changedIsCanStart);
   };
 
-  const changeLastResults = (count, best, average) => {
-    let changedLastResults = {count, best, average};
-    console.log("changedLastResults " + changedLastResults);
+  const changeLastResults = (tryNumber, start, count, best, average) => {
+    let cps = ((count/start).toFixed(2));
+    let changedLastResults = {tryNumber, start, count, best, average, cps};
     setLastResults(changedLastResults);
-    console.log(lastResults);
+  };
+
+  const changeTryCount = (value) => {
+    let changedTryCount = value;
+    setTryCount(changedTryCount);
   };
 
   const checkStartTime = (e) => {
@@ -134,25 +129,17 @@ const DestinationTime = () => {
     }
     changeStartTime(e.currentTarget.value);
     if (e.currentTarget.value === "") {
-      changeSetIsCanStart(false);
+      changeIsCanStart(false);
     } else {
-      changeSetIsCanStart(true);
+      changeIsCanStart(true);
     }
   };
 
   const start = () => {
-    // if (startTime === "") {
-    //   changeTimerStart(true);
-    //   changeStartTime(2);
-    //   changeRemainingTime(2);
-    // } else {
-    //   changeTimerStart(true);
-    //   changeRemainingTime(startTime);
-    // }
-    // changeSetIsCanStart(false);
+    changeTryCount(tryCount+1);
     changeTimerStart(true);
     changeRemainingTime(startTime);
-    changeSetIsCanStart(false);
+    changeIsCanStart(false);
   };
 
   const clickyClicky = () => {
@@ -170,45 +157,49 @@ const DestinationTime = () => {
         changeAverageTime(
           ((startTime - remainingTime) / clickCount).toFixed(2)
         );
-        // console.log("Вариант1");
       } else {
         changeClickCount(clickCount + 1);
         changeLastTime(remainingTime);
         changeAverageTime(
           ((startTime - remainingTime) / clickCount).toFixed(2)
         );
-        // console.log("Вариант2");
       }
     }
   };
 
   return (
     <div className={style.timeItem}>
-      {timerStart === false ? (
+      <h2>Тест скорости клика</h2>
+      {timerStart === false ? ( 
         <div>
-          <h3>Enter destination time</h3>
+          <h3>Введите время в секундах</h3>
           <input
             value={startTime}
             type="text"
             onChange={checkStartTime}
-            placeholder="Seconds between 1 and 120"
+            placeholder="1 - 120"
           />
         </div>
       ) : (
         <div>
-          <h3>Click as fast as you can!</h3>
+          <h3>Кликайте как можно быстрее!</h3>
           <input value={remainingTime} type="text" readOnly />
           <div>
-            <button onClick={clickyClicky}>Click!</button>
+            <button className={style.stylishButton} onClick={clickyClicky}>Клик!</button>
           </div>
         </div>
       )}
       {isCanStart === true ? (
         <div>
           <div>
-            <button onClick={start}>Start</button>
+            <button className={style.stylishButton} onClick={start}>Старт</button>
           </div>
         </div>
+      ) : (
+        <div></div>
+      )}
+      {timerStart === false && isCanStart === false ? (
+        <div className={style.noButtonDiv}><h3>Допустимы целые значения от 1 до 120</h3></div>
       ) : (
         <div></div>
       )}

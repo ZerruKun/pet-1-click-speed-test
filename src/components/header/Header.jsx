@@ -1,12 +1,12 @@
-import React from "react";
+import React, {memo} from "react";
 import style from "./Header.module.css";
 
-const Header = () => {
+const Header = memo(() => {
   return (
     <div className={style.headerItem}>
-      <h1>Welcome to the Click Speed Test!</h1>
+      <h1>Узнайте свой КПС</h1>
     </div>
   );
-};
+});
 
 export default Header;

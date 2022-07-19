@@ -1,16 +1,29 @@
-import React from "react";
+import React, {memo} from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 
-const Sidebar = () => {
+const Sidebar = memo(() => {
+
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: isActive ? "none" : "underline",
+      color: isActive ? "white" : "black"
+    };
+  };
+
   return (
     <div className={styles.sidebarItem}>
-      <ul>
-        <li>Click Speed Test</li>
-        <li>What is CPS?</li>
-        <li>About</li>
+      <ul className={styles.sidebarLink}>
+        <NavLink style={navLinkStyles} to="/cst">
+          <li>Тест скорости клика</li>
+        </NavLink>
+        <NavLink style={navLinkStyles} to="/whatiscps">
+          <li>Что такое КПС?</li>
+        </NavLink>
       </ul>
     </div>
   );
-};
+});
 
 export default Sidebar;
