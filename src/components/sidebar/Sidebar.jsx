@@ -21,9 +21,6 @@ const Sidebar = memo(() => {
         <NavLink style={navLinkStyles} to="/whatiscps">
           <li>Что такое КПС</li>
         </NavLink>
-        <NavLink style={navLinkStyles} to="/about">
-          <li>О проекте</li>
-        </NavLink>
       </ul>
     </div>
   );

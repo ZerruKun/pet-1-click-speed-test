@@ -4,7 +4,7 @@ import style from "./Header.module.css";
 const Header = memo(() => {
   return (
     <div className={style.headerItem}>
-      <h1>Измерение скорости клика</h1>
+      <h1>Тест скорости клика</h1>
     </div>
   );
 });
