@@ -17,3 +17,33 @@ h2 {
 h3 {
     font-size: 18px;
 }
+
+input {
+    border: 2px solid black;
+    outline: 1px solid black;
+}
+
+input:focus {
+    border: 2px solid deepskyblue;
+    outline: 1px solid deepskyblue;
+}
+
+.stylishButton {
+    margin: 12px;
+    width: 130px;
+    height: 130px;
+    color: white;
+    background: aquamarine;
+    padding: 10px;
+    font-size: 20px;
+    border-color: deepskyblue;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px;
+    transition: all 500ms ease-out;
+}
+
+.stylishButton:hover {
+    box-shadow: 0px 0px 0px 2px deepskyblue,
+    0px 0px 0px 7px #a7f9c9,
+    0px 0px 0px 10px deepskyblue;
+    }

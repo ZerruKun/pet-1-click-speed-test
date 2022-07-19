@@ -2,7 +2,6 @@ import React, { useState, useContext} from "react";
 import style from "./DestinationTime.module.css";
 import useDidMountEffect from "../../useDidMountEffect";
 import applicationContext from "../../context";
-import OtherButton from "../UI/button/OtherButton";
 
 const DestinationTime = () => {
   
@@ -212,14 +211,14 @@ const DestinationTime = () => {
           <h3>Кликайте как можно быстрее!</h3>
           <input value={remainingTime} type="text" readOnly />
           <div>
-            <OtherButton onClick={clickyClicky}>Клик!</OtherButton>
+            <button className={style.stylishButton} onClick={clickyClicky}>Клик!</button>
           </div>
         </div>
       )}
       {isCanStart === true ? (
         <div>
           <div>
-            <OtherButton onClick={start}>Старт</OtherButton>
+            <button className={style.stylishButton} onClick={start}>Старт</button>
           </div>
         </div>
       ) : (
