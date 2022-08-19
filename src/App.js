@@ -6,9 +6,10 @@ import Sidebar from "./components/sidebar/Sidebar"
 import Cst from "./pages/cst/Cst"
 import AboutCst from "./pages/aboutCst/AboutCst"
 
-function App() {
+const App = () => {
   return (
     <div>
+      {console.log("я отрендерился целиком")}
       <Header />
       <Sidebar />
       <Routes>
