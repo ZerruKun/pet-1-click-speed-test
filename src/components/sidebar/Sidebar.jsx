@@ -2,9 +2,10 @@ import React from 'react'
 
 const Sidebar = () => {
   return (
-    <div>
+    <nav>
       <h1>Я Sidebar</h1>
-    </div>
+
+    </nav>
   )
 }
 
