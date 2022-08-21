@@ -13,6 +13,7 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<Cst />} />
         <Route path="*" element={<Cst />} />
+        {/* <Route path="*" element={<NoMatch />} /> */}
         <Route path="/about" element={<AboutCst />} />
       </Routes>
     </div>

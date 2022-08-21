@@ -2,7 +2,10 @@ import React from 'react'
 
 const CstClickButton = () => {
   return (
-    <button>Старт</button>
+    <button>
+        {console.log("отрендерился CstClickButton")}
+        Старт
+    </button>
   )
 }
 
