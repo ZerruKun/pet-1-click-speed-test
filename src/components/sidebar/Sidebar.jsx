@@ -16,7 +16,7 @@ const Sidebar = () => {
       {console.log("отрендерился Sidebar")}
       <h1>Я Sidebar</h1>
       <NavLink style={linkStyle} to="/">
-        Тест сткорости клика
+        Тест скорости клика
       </NavLink>
       <NavLink style={linkStyle} to="/about">
         О скорости клика

@@ -3,6 +3,7 @@ import React from 'react'
 const CstLastTenResults = () => {
   return (
     <table>
+      {console.log("отрендерился CstLastTenResults")}
       <caption><b>Последние 10 результатов</b></caption>
       <thead>
         <tr>

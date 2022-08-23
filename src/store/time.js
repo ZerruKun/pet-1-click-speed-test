@@ -25,7 +25,7 @@ class Time {
         }
     };
 
-    setStartTime(value) {
+    setStartTime = (value) => {
         if(value > 120) {
             value = 120;
         } else if (value === "0") {
@@ -37,6 +37,11 @@ class Time {
         }
         this.startTime = value;
     }
+        
+        setIsTimerRun = (value) => {
+            this.isTimerRun = value;
+            console.log("isTimerRun" + this.isTimerRun);
+        }
 }
 
 export default new Time();

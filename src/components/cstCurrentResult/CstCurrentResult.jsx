@@ -3,6 +3,7 @@ import React from 'react'
 const cstCurrentResult = () => {
   return (
     <table>
+      {console.log("отрендерился cstCurrentResult")}
       <caption><b>Текущий результат</b></caption>
       <thead>
         <tr>
