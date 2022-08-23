@@ -8,6 +8,7 @@ const Sidebar = () => {
       color: isActive ? "darkblue" : "black",
       fontWeight: isActive ? "bold" : "normal",
       textDecoration: isActive ? "none" : "underline",
+      pointerEvents: isActive ? "none" : "",
     };
   };
 
