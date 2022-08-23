@@ -9,6 +9,7 @@ const Sidebar = () => {
       fontWeight: isActive ? "bold" : "normal",
       textDecoration: isActive ? "none" : "underline",
       pointerEvents: isActive ? "none" : "",
+      userSelect: isActive ? "none" : "",
     };
   };
 
