@@ -1,6 +1,8 @@
 import React from "react";
-import CstClickButton from "./cstClickButton/CstClickButton";
-import CstInput from "./cstInput/CstInput"
+import CstClickButton from "../../components/cstClickButton/CstClickButton";
+import CstInput from "../../components/cstInput/CstInput"
+import CstCurrentResult from "../../components/cstCurrentResult/CstCurrentResult"
+import CstLastTenResults from "../../components/cstLastTenResults/CstLastTenResults";
 
 const Cst = () => {
 
@@ -10,6 +12,8 @@ const Cst = () => {
       <h1>Я Cst</h1>
       <CstInput />
       <CstClickButton />
+      <CstCurrentResult />
+      <CstLastTenResults />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 class Time {
     startTime = ""
+    isTimerRun = false;
     
     constructor() {
         makeAutoObservable(this);

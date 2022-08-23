@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import React from 'react'
-import time from '../../../store/time'
+import time from '../../store/time'
 
 const CstInput = observer(() => {
   return (
