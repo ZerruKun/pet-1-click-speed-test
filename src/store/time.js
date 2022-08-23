@@ -38,10 +38,10 @@ class Time {
         this.startTime = value;
     }
         
-        setIsTimerRun = (value) => {
-            this.isTimerRun = value;
-            console.log("isTimerRun" + this.isTimerRun);
-        }
+    setIsTimerRun = (value) => {
+         this.isTimerRun = value;
+        console.log("isTimerRun" + this.isTimerRun);
+    }
 }
 
 export default new Time();
