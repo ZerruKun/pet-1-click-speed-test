@@ -37,6 +37,10 @@ class Time {
         }
         this.startTime = value;
     }
+
+    changeStartTime = (value) => {
+        this.startTime = value;
+    }
         
     setIsTimerRun = (value) => {
          this.isTimerRun = value;
