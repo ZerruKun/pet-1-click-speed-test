@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite'
 import time from '../../store/time'
 
 const CstButton = observer(() => {
+
   return (
     <div>
       {time.isTimerRun ? (
@@ -11,7 +12,7 @@ const CstButton = observer(() => {
             Клик!
         </button>
       ) : (
-        <button style={{width: "100px", height: "100px"}} onClick={() => time.setIsTimerRun(true)}>
+        <button style={{width: "100px", height: "100px"}} onClick={() => {time.setIsTimerRun(true)}}>
             {console.log("отрендерился Старт")}
             Старт
         </button>

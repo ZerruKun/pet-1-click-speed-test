@@ -44,7 +44,7 @@ class Time {
         
     setIsTimerRun = (value) => {
          this.isTimerRun = value;
-        console.log("isTimerRun" + this.isTimerRun);
+        console.log("isTimerRun " + this.isTimerRun);
     }
 }
 

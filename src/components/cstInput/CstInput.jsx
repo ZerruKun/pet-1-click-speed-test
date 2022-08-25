@@ -4,16 +4,23 @@ import time from '../../store/time'
 
 const CstInput = observer(() => {
 
-  const timerTick = () => {
-    if (time.isTimerRun) {
-      
-    }
-  }
-
   useEffect(() => {
-    timerTick();
+    if(time.startTime === "0.00"){
+      time.changeStartTime("");
+      time.setIsTimerRun(false);
+    }
+
+    if (!time.startTime) return;
+
+    if(time.isTimerRun) {
+      const interval = setInterval(() => {
+        time.changeStartTime((time.startTime - 0.01).toFixed(2));
+      }, 10);
+      return () => clearInterval(interval);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [time.isTimerRun])
+  },[time.startTime, time.isTimerRun]);
+
 
   return (
     <div>
