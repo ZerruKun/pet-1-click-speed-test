@@ -2,6 +2,8 @@ import { makeAutoObservable } from "mobx";
 
 class Store {
     startTime = "";
+    transitionTime = 0;
+    remainingTime = "";
     isTimerRun = false;
     isTimeCorrect = false;
     currentResults = {
@@ -63,6 +65,16 @@ class Store {
         } else {
             this.currentResults.currentClicks = 0;
         }        
+    }
+
+    changeTransitionTime = (value) => {
+        this.transitionTime = value;
+    }
+
+    setCurentBest = () => {
+        if(this.currentClicks === 0) {
+            
+        }
     }
 }
 
