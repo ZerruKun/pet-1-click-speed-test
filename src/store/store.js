@@ -72,8 +72,15 @@ class Store {
     }
 
     setCurentBest = () => {
-        if(this.currentClicks === 0) {
-            
+        if(this.currentResults.currentClicks >= 1) {
+            let forComparison = ((this.transitionTime - this.startTime).toFixed(2));
+            if(forComparison < this.currentResults.currentBest) {
+                this.currentResults.currentBest = forComparison;
+            }
+            this.transitionTime = this.startTime;
+        } else {
+            this.currentResults.currentBest = ((this.transitionTime - this.startTime).toFixed(2));
+            this.transitionTime = this.startTime;
         }
     }
 }

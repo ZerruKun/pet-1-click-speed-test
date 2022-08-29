@@ -5,6 +5,7 @@ import store from '../../../../store/store'
 const CstClickButton = observer(() => {
 
     const onButtonClick = () => {
+        store.setCurentBest();
         store.setCurrentClicks();
       }
 

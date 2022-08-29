@@ -2,6 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react-lite'
 import store from "../../../store/store"
 import CurrentClicks from './eachResult/CurrentClicks'
+import CurrentBest from './eachResult/CurrentBest'
 
 const cstCurrentResult = observer(() => {
   return (
@@ -16,7 +17,7 @@ const cstCurrentResult = observer(() => {
       <tbody>
         <tr>
           <CurrentClicks />
-          <td>{store.currentResults.currentBest}</td>
+          <CurrentBest />
           <td>{store.currentResults.currentAverage}</td>
         </tr>
       </tbody>

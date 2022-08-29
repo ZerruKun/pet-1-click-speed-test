@@ -3,16 +3,22 @@ import { observer } from 'mobx-react-lite'
 import store from '../../../../store/store'
 
 const CstStartButton = observer(() => {
-  return (
-    <button 
-        disabled={store.isTimeCorrect === false} 
-        style={{width: "100px", height: "100px"}} 
-        onClick={() => {store.setIsTimerRun(true)}}
-    >
-        {console.log("отрендерился Старт")}
-        Старт
-    </button>
-  )
+
+    const onButtonClick = () => {
+        store.setIsTimerRun(true)
+        store.changeTransitionTime(store.startTime);
+      }
+
+    return (
+        <button 
+            disabled={store.isTimeCorrect === false} 
+            style={{width: "100px", height: "100px"}} 
+            onClick={onButtonClick}
+        >
+            {console.log("отрендерился Старт")}
+            Старт
+        </button>
+    )
 })
 
 export default CstStartButton
