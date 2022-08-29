@@ -3,6 +3,7 @@ import { makeAutoObservable } from "mobx";
 class Time {
     startTime = ""
     isTimerRun = false;
+    isTimeCorrect = false;
     
     constructor() {
         makeAutoObservable(this);
@@ -45,6 +46,10 @@ class Time {
     setIsTimerRun = (value) => {
          this.isTimerRun = value;
         console.log("isTimerRun " + this.isTimerRun);
+    }
+
+    changeIsTimeCorrect = (value) => {
+        this.isTimeCorrect = value;
     }
 }
 

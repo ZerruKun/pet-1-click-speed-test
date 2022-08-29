@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { useEffect } from 'react'
+import React, { useEffect} from 'react'
 import time from '../../store/time'
 
 const CstInput = observer(() => {
@@ -21,12 +21,20 @@ const CstInput = observer(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[time.startTime, time.isTimerRun]);
 
+  const isTimeCorrect = () => {
+    if(time.startTime > 0) {
+      time.changeIsTimeCorrect(true);
+    } else {
+      time.changeIsTimeCorrect(false);
+    }
+  }
 
   return (
     <div>
         {console.log("отрендерился CstInput")}
         <input style={ {width: "100px"} } value={time.startTime} onChange={(e) => {
-            time.setStartTime(e.target.value); 
+            time.setStartTime(e.target.value);
+            isTimeCorrect();
             console.log("Меняется время")
             }
         }/>

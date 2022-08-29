@@ -4,8 +4,6 @@ import time from '../../store/time'
 
 const CstButton = observer(() => {
 
-  //Подумать над повторным рендером кнопки
-
   return (
     <div>
       {time.isTimerRun ? (
@@ -14,7 +12,7 @@ const CstButton = observer(() => {
             Клик!
         </button>
       ) : (
-        <button disabled={!time.startTime} style={{width: "100px", height: "100px"}} onClick={() => {time.setIsTimerRun(true)}}>
+        <button disabled={time.isTimeCorrect === false} style={{width: "100px", height: "100px"}} onClick={() => {time.setIsTimerRun(true)}}>
             {console.log("отрендерился Старт")}
             Старт
         </button>
