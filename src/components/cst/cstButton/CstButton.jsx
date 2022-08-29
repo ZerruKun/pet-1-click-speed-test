@@ -1,18 +1,22 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import time from '../../store/time'
+import store from '../../../store/store'
 
 const CstButton = observer(() => {
 
+  const clickTest = () => {
+    store.setCurrentClicks();
+  }
+
   return (
     <div>
-      {time.isTimerRun ? (
-        <button style={{width: "100px", height: "100px"}} onClick={() => time.setIsTimerRun(false)}>
+      {store.isTimerRun ? (
+        <button style={{width: "100px", height: "100px"}} onClick={clickTest}>
             {console.log("отрендерился Клик!")}
             Клик!
         </button>
       ) : (
-        <button disabled={time.isTimeCorrect === false} style={{width: "100px", height: "100px"}} onClick={() => {time.setIsTimerRun(true)}}>
+        <button disabled={store.isTimeCorrect === false} style={{width: "100px", height: "100px"}} onClick={() => {store.setIsTimerRun(true)}}>
             {console.log("отрендерился Старт")}
             Старт
         </button>

@@ -1,9 +1,9 @@
 import React from "react";
 import { observer } from 'mobx-react-lite'
-import CstInput from "../../components/cstInput/CstInput"
-import CstCurrentResult from "../../components/cstCurrentResult/CstCurrentResult"
-import CstLastTenResults from "../../components/cstLastTenResults/CstLastTenResults";
-import CstButton from "../../components/cstButton/CstButton";
+import CstInput from "../../components/cst/cstInput/CstInput"
+import CstCurrentResult from "../../components/cst/cstCurrentResult/CstCurrentResult"
+import CstLastTenResults from "../../components/cst/cstLastTenResults/CstLastTenResults";
+import CstButton from "../../components/cst/cstButton/CstButton";
 
 const Cst = observer(() => {
 

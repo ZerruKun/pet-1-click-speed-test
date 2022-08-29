@@ -1,6 +1,9 @@
 import React from 'react'
+import { observer } from 'mobx-react-lite'
+import store from "../../../store/store"
+import CurrentClicks from './eachResult/CurrentClicks'
 
-const cstCurrentResult = () => {
+const cstCurrentResult = observer(() => {
   return (
     <table>
       {console.log("отрендерился cstCurrentResult")}
@@ -12,11 +15,13 @@ const cstCurrentResult = () => {
       </thead>
       <tbody>
         <tr>
-          <td>0</td><td>0</td><td>0</td>
+          <CurrentClicks />
+          <td>{store.currentResults.currentBest}</td>
+          <td>{store.currentResults.currentAverage}</td>
         </tr>
       </tbody>
     </table>
   )
-}
+})
 
 export default cstCurrentResult

@@ -1,12 +1,17 @@
 import { makeAutoObservable } from "mobx";
 
-class Time {
-    startTime = ""
+class Store {
+    startTime = "";
     isTimerRun = false;
     isTimeCorrect = false;
+    currentResults = {
+        currentClicks: 0,
+        currentBest: 0,
+        currentAverage: 0,
+    }
     
     constructor() {
-        makeAutoObservable(this);
+        makeAutoObservable(this, {}, {deep: true});
     }
 
     isRealNumber = (num) => {
@@ -51,6 +56,14 @@ class Time {
     changeIsTimeCorrect = (value) => {
         this.isTimeCorrect = value;
     }
+
+    setCurrentClicks = (value) => {
+        if(value !== 0) {
+            this.currentResults.currentClicks ++;
+        } else {
+            this.currentResults.currentClicks = 0;
+        }        
+    }
 }
 
-export default new Time();
+export default new Store();
