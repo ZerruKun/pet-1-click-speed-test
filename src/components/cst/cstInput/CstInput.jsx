@@ -10,6 +10,8 @@ const CstInput = observer(() => {
       store.setIsTimerRun(false);
       store.changeIsTimeCorrect(false);
       // store.setCurrentClicks(0); пока так для наглядности.
+      // store.setCurentBest(0);
+      // store.setCurrentAverage(0);
     }
 
     if (!store.startTime) return;

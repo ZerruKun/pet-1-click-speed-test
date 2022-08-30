@@ -1,8 +1,9 @@
 import { makeAutoObservable } from "mobx";
 
 class Store {
-    startTime = ""; // стартовое время в инпуте
+    startTime = ""; // начальное время, которое будет уменьшаться после нажатия на "Старт" 
     transitionTime = 0; // промежуточное значение таймера для вычислений
+    initialTime = 0; // значение начального времени для вычислений
     isTimerRun = false; // Запущен ли таймер
     isTimeCorrect = false; //Для проверки возможности старта, блокирует нажатие кнопки "Старт"
     currentResults = {
@@ -97,6 +98,17 @@ class Store {
             this.currentResults.currentBest = ((this.transitionTime - this.startTime).toFixed(2));
             this.transitionTime = this.startTime;
         }
+    }
+
+    changeInitialTime = (value) => {
+        this.initialTime = value;
+    }
+
+    // Установка значения средней скорости кликов на текущей попытке
+
+    setCurrentAverage = () => {
+        this.currentResults.currentAverage = 
+        ((this.initialTime - this.startTime) / this.currentResults.currentClicks).toFixed(2);
     }
 }
 

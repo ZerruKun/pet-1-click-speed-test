@@ -7,6 +7,7 @@ const CstClickButton = observer(() => {
     const onButtonClick = () => {
         store.setCurentBest();
         store.setCurrentClicks();
+        store.setCurrentAverage();
       }
 
     return (

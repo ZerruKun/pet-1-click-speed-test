@@ -7,6 +7,7 @@ const CstStartButton = observer(() => {
     const onButtonClick = () => {
         store.setIsTimerRun(true)
         store.changeTransitionTime(store.startTime);
+        store.changeInitialTime(store.startTime);
       }
 
     return (
