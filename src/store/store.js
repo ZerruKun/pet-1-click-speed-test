@@ -10,7 +10,7 @@ class Store {
         currentClicks: 0,
         currentBest: 0,
         currentAverage: 0,
-    } // Соответствующие результаты в первой таблице
+    }; // Соответствующие результаты в первой таблице
     lastResults = {
         tryCount: 0,
         startCount: 0,
@@ -18,7 +18,8 @@ class Store {
         bestClick: 0,
         averageClick: 0,
         csp: 0
-    }
+    }; // Итоговые значения попытки, каждая из которых будет заноситься в последующий массив
+    lastTenResults = []; // Массив с результатами последних 10-ти попыток
     
     constructor() {
         makeAutoObservable(this, {}, {deep: true});
@@ -121,17 +122,26 @@ class Store {
         ((this.initialTime - this.startTime) / this.currentResults.currentClicks).toFixed(2);
     }
 
+    // Обнуление значений текущей попытки
+
+    resetCurrentResults = () => {
+        this.currentResults.currentClicks = 0;
+        this.currentResults.currentBest = 0;
+        this.currentResults.currentAverage = 0;
+    }
+
     //Счётчик попыток
 
     changeTryCount = () => {
         this.lastResults.tryCount++;
     }
 
-    // Изменение объекта, хранящего результаты последней попытки, которые будут добавлены в таблицу
-    // с последними десятью результатами
+    // Установка значений для объекта, хранящего результаты последней попытки, 
+    // которые будут добавлены в массив с последними десятью результатами
 
     setLastResults = (startCount, clickCount, bestClick, averageClick) => {
         let cps = ((clickCount/startCount).toFixed(2));
+        this.lastResults.tryCount ++;
         this.lastResults.startCount = startCount;
         this.lastResults.clickCount = clickCount;
         this.lastResults.bestClick = bestClick;
@@ -139,7 +149,17 @@ class Store {
         this.lastResults.csp = cps;
     }
 
+    // Установка / обновление значений массива с последними десятью результатами
 
+    //!!! НУЖНО ПОЛНОЕ КОПИРОВАНИЕ МАССИВА ОБЪЕКТОВ !!!
+
+    setLastTenResults = (value) => {
+        if(this.lastTenResults.length > 9) {
+            this.lastTenResults.shift();
+        }
+        let changedLasttenResults = this.lastTenResults.map((e) => e);
+        this.lastTenResults = [...changedLasttenResults, value];
+    }
 }
 
 export default new Store();

@@ -8,7 +8,6 @@ const CstStartButton = observer(() => {
         store.setIsTimerRun(true)
         store.changeTransitionTime(store.startTime);
         store.changeInitialTime(store.startTime);
-        store.changeTryCount();
       }
 
     return (

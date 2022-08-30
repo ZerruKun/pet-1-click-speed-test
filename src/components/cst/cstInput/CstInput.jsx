@@ -16,12 +16,12 @@ const CstInput = observer(() => {
       " store.lastResults.averageClick " + store.lastResults.averageClick + 
       " store.lastResults.csp " + store.lastResults.csp
       );
+      store.setLastTenResults(store.lastResults);
+      console.log("В таблице 10 " + store.lastTenResults.length + " элементов")
       store.changeStartTime("");
       store.setIsTimerRun(false);
       store.changeIsTimeCorrect(false);
-      store.setCurrentClicks(0);
-      store.setCurentBest(0);
-      store.setCurrentAverage(0);
+      store.resetCurrentResults();
     }
 
     if (!store.startTime) return;
