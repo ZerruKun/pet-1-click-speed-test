@@ -6,12 +6,22 @@ const CstInput = observer(() => {
 
   useEffect(() => {
     if(store.startTime === "0.00"){
+      store.setLastResults(store.initialTime, store.currentResults.currentClicks, store.currentResults.currentBest, 
+      store.currentResults.currentAverage);
+      console.log(
+      "lastResults.tryCount " + store.lastResults.tryCount + 
+      " store.initialTime " + store.initialTime + 
+      " store.lastResults.clickCount " + store.lastResults.clickCount + 
+      " store.lastResults.bestClick " + store.lastResults.bestClick + 
+      " store.lastResults.averageClick " + store.lastResults.averageClick + 
+      " store.lastResults.csp " + store.lastResults.csp
+      );
       store.changeStartTime("");
       store.setIsTimerRun(false);
       store.changeIsTimeCorrect(false);
-      // store.setCurrentClicks(0); пока так для наглядности.
-      // store.setCurentBest(0);
-      // store.setCurrentAverage(0);
+      store.setCurrentClicks(0);
+      store.setCurentBest(0);
+      store.setCurrentAverage(0);
     }
 
     if (!store.startTime) return;

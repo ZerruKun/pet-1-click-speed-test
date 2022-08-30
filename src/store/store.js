@@ -11,6 +11,14 @@ class Store {
         currentBest: 0,
         currentAverage: 0,
     } // Соответствующие результаты в первой таблице
+    lastResults = {
+        tryCount: 0,
+        startCount: 0,
+        clickCount: 0,
+        bestClick: 0,
+        averageClick: 0,
+        csp: 0
+    }
     
     constructor() {
         makeAutoObservable(this, {}, {deep: true});
@@ -112,6 +120,26 @@ class Store {
         this.currentResults.currentAverage = 
         ((this.initialTime - this.startTime) / this.currentResults.currentClicks).toFixed(2);
     }
+
+    //Счётчик попыток
+
+    changeTryCount = () => {
+        this.lastResults.tryCount++;
+    }
+
+    // Изменение объекта, хранящего результаты последней попытки, которые будут добавлены в таблицу
+    // с последними десятью результатами
+
+    setLastResults = (startCount, clickCount, bestClick, averageClick) => {
+        let cps = ((clickCount/startCount).toFixed(2));
+        this.lastResults.startCount = startCount;
+        this.lastResults.clickCount = clickCount;
+        this.lastResults.bestClick = bestClick;
+        this.lastResults.averageClick = averageClick;
+        this.lastResults.csp = cps;
+    }
+
+
 }
 
 export default new Store();
