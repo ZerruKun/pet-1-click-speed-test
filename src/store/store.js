@@ -100,6 +100,8 @@ class Store {
         }
     }
 
+    // Изменение значения начального времени
+
     changeInitialTime = (value) => {
         this.initialTime = value;
     }
