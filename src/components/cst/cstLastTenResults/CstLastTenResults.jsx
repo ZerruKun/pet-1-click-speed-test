@@ -5,9 +5,9 @@ import store from "../../../store/store"
 const CstLastTenResults = observer(() => {
 
 let results = store.lastTenResults.map((obj) => {
-  return (<tr>
+  return (<tr key={obj.tryCount}>
     <td>{obj.tryCount}</td><td>{obj.startCount}</td><td>{obj.clickCount}</td>
-    <td>{obj.bestClick}</td><td>{obj.averageClick}</td><td>{obj.csp}</td>
+    <td>{obj.bestClick}</td><td>{obj.averageClick}</td><td>{obj.cps}</td>
   </tr>)
 })
 

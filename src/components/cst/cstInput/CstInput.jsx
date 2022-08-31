@@ -14,7 +14,7 @@ const CstInput = observer(() => {
       " store.lastResults.clickCount " + store.lastResults.clickCount + 
       " store.lastResults.bestClick " + store.lastResults.bestClick + 
       " store.lastResults.averageClick " + store.lastResults.averageClick + 
-      " store.lastResults.csp " + store.lastResults.csp
+      " store.lastResults.cps " + store.lastResults.cps
       );
       store.setLastTenResults(store.lastResults);
       console.log("В таблице 10 " + store.lastTenResults.length + " элементов")

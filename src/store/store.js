@@ -17,7 +17,7 @@ class Store {
         clickCount: 0,
         bestClick: 0,
         averageClick: 0,
-        csp: 0
+        cps: 0
     }; // Итоговые значения попытки, каждая из которых будет заноситься в последующий массив
     lastTenResults = []; // Массив с результатами последних 10-ти попыток
     
@@ -146,20 +146,36 @@ class Store {
         this.lastResults.clickCount = clickCount;
         this.lastResults.bestClick = bestClick;
         this.lastResults.averageClick = averageClick;
-        this.lastResults.csp = cps;
+        this.lastResults.cps = cps;
     }
 
     // Установка / обновление значений массива с последними десятью результатами
-
-    //!!! НУЖНО ПОЛНОЕ КОПИРОВАНИЕ МАССИВА ОБЪЕКТОВ !!!
-
-    setLastTenResults = (value) => {
+    
+    setLastTenResults = (object) => {
         if(this.lastTenResults.length > 9) {
-            this.lastTenResults.shift();
+            this.lastTenResults.pop();
         }
-        let changedLasttenResults = this.lastTenResults.map((e) => e);
-        this.lastTenResults = [...changedLasttenResults, value];
+        let intermediateObject = {
+            tryCount: object.tryCount,
+            startCount: object.startCount,
+            clickCount: object.clickCount,
+            bestClick: object.bestClick,
+            averageClick: object.averageClick,
+            cps: object.cps,
+        }
+        console.log(
+            intermediateObject.tryCount + " " +
+            intermediateObject.startCount + " " +
+            intermediateObject.clickCount + " " +
+            intermediateObject.bestClick + " " +
+            intermediateObject.averageClick + " " +
+            intermediateObject.cps
+        )
+        let computedLastTenResults = [intermediateObject, ...this.lastTenResults];
+        console.log("Массив 10: " + computedLastTenResults);
+        this.lastTenResults = computedLastTenResults;
     }
+
 }
 
 export default new Store();
