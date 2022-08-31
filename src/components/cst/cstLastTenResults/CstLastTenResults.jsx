@@ -1,15 +1,7 @@
 import React from 'react'
-import { observer } from 'mobx-react-lite'
-import store from "../../../store/store"
+import Results from './results/Results'
 
-const CstLastTenResults = observer(() => {
-
-let results = store.lastTenResults.map((obj) => {
-  return (<tr key={obj.tryCount}>
-    <td>{obj.tryCount}</td><td>{obj.startCount}</td><td>{obj.clickCount}</td>
-    <td>{obj.bestClick}</td><td>{obj.averageClick}</td><td>{obj.cps}</td>
-  </tr>)
-})
+const CstLastTenResults = () => {
 
   return (
     <table>
@@ -21,9 +13,9 @@ let results = store.lastTenResults.map((obj) => {
           <th>Лучший клик</th><th>Среднее время клика</th><th>КПС</th>
         </tr>
       </thead>
-      <tbody>{results}</tbody>
+      <Results />
     </table>
-);
-})
+  );
+}
 
 export default CstLastTenResults
