@@ -1,0 +1,179 @@
+@keyframes headerBackround {
+    from {
+        background-image: linear-gradient(to bottom, #167fe8 1%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    to {
+        background-image: linear-gradient(to bottom, #167fe8 1%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    2% {
+        background-image: linear-gradient(to bottom, #167fe8 5%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    5% {
+        background-image: linear-gradient(to bottom, #167fe8 10%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    7% {
+        background-image: linear-gradient(to bottom, #167fe8 15%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    10% {
+        background-image: linear-gradient(to bottom, #167fe8 20%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    12% {
+        background-image: linear-gradient(to bottom, #167fe8 25%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    15% {
+        background-image: linear-gradient(to bottom, #167fe8 30%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    17% {
+        background-image: linear-gradient(to bottom, #167fe8 35%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    20% {
+        background-image: linear-gradient(to bottom, #167fe8 40%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    22% {
+        background-image: linear-gradient(to bottom, #167fe8 45%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    25% {
+        background-image: linear-gradient(to bottom, #167fe8 50%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    27% {
+        background-image: linear-gradient(to bottom, #167fe8 55%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    30% {
+        background-image: linear-gradient(to bottom, #167fe8 60%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    32% {
+        background-image: linear-gradient(to bottom, #167fe8 65%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    35% {
+        background-image: linear-gradient(to bottom, #167fe8 70%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    37% {
+        background-image: linear-gradient(to bottom, #167fe8 75%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    40% {
+        background-image: linear-gradient(to bottom, #167fe8 80%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    42% {
+        background-image: linear-gradient(to bottom, #167fe8 85%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    45% {
+        background-image: linear-gradient(to bottom, #167fe8 90%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+
+    47% {
+        background-image: linear-gradient(to bottom, #167fe8 95%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    50% {
+        background-image: linear-gradient(to bottom, #167fe8 99%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    52% {
+        background-image: linear-gradient(to bottom, #167fe8 95%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    55% {
+        background-image: linear-gradient(to bottom, #167fe8 90%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    57% {
+        background-image: linear-gradient(to bottom, #167fe8 85%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    60% {
+        background-image: linear-gradient(to bottom, #167fe8 80%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    62% {
+        background-image: linear-gradient(to bottom, #167fe8 75%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    65% {
+        background-image: linear-gradient(to bottom, #167fe8 70%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    67% {
+        background-image: linear-gradient(to bottom, #167fe8 65%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    70% {
+        background-image: linear-gradient(to bottom, #167fe8 60%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    72% {
+        background-image: linear-gradient(to bottom, #167fe8 55%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    75% {
+        background-image: linear-gradient(to bottom, #167fe8 50%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    77% {
+        background-image: linear-gradient(to bottom, #167fe8 45%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    80% {
+        background-image: linear-gradient(to bottom, #167fe8 40%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    82% {
+        background-image: linear-gradient(to bottom, #167fe8 35%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    85% {
+        background-image: linear-gradient(to bottom, #167fe8 30%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    87% {
+        background-image: linear-gradient(to bottom, #167fe8 25%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    90% {
+        background-image: linear-gradient(to bottom, #167fe8 20%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    92% {
+        background-image: linear-gradient(to bottom, #167fe8 15%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+    95% {
+        background-image: linear-gradient(to bottom, #167fe8 10%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+
+    97% {
+        background-image: linear-gradient(to bottom, #167fe8 5%, #003c7b);
+        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    }
+}
+
+.background {
+    animation-name: headerBackround;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.text {
+    color: #c2d1ea;
+    text-align: center;
+}

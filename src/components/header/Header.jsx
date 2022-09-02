@@ -1,10 +1,11 @@
 import React from "react";
+import styles from "../../styles/HeaderAndFooter.module.css"
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.background}>
       {console.log("отрендерился Header")}
-      <h1>Я Header</h1>
+      <h1 className={styles.text}>Я Header</h1>
     </header>
   )
 }
