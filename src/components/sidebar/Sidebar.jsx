@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import styles from "../../styles/Sidebar.module.css"
 
 const Sidebar = () => {
 
@@ -14,9 +15,8 @@ const Sidebar = () => {
   };
 
   return (
-    <nav>
+    <nav className={styles.general}>
       {console.log("отрендерился Sidebar")}
-      <h1>Я Sidebar</h1>
       <NavLink style={linkStyle} to="/">
         Тест скорости клика
       </NavLink>

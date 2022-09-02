@@ -10,7 +10,6 @@ const Cst = observer(() => {
   return (
     <div>
       {console.log("отрендерился Cst")}
-      <h1>Я Cst</h1>
       <CstInput />
       <CstButton />
       <CstCurrentResult />

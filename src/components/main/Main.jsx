@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import Cst from "../../pages/cst/Cst"
 import AboutCst from "../../pages/aboutCst/AboutCst"
 import Sidebar from "../sidebar/Sidebar"
+import styles from "../../styles/Main.module.css"
 
 const Main = () => {
   return (
-    <div>
+    <div className={styles.general}>
       {console.log("отрендерился Main")}
-      <h1>Я Main</h1>
       <Sidebar />
       <Routes>
         <Route path="/" element={<Cst />} />
