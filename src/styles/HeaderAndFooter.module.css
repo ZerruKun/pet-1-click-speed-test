@@ -1,4 +1,4 @@
-@keyframes headerBackround {
+@keyframes movingBackround {
     from {
         background-image: linear-gradient(to bottom, #167fe8 1%, #003c7b);
         box-shadow: 0 1px 5px rgba(0,0,0,0.75);
@@ -168,8 +168,8 @@
 }
 
 .background {
-    animation-name: headerBackround;
-    animation-duration: 5s;
+    animation-name: movingBackround;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
 }
 

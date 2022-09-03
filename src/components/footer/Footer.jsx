@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className={styles.background}>
       {console.log("отрендерился Footer")}
-      <h1 className={styles.text}>Я Footer</h1>
+      <h2 className={styles.text}>Я Footer</h2>
     </footer>
   )
 }

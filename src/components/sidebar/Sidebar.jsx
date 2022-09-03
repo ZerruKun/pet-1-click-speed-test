@@ -4,23 +4,29 @@ import styles from "../../styles/Sidebar.module.css"
 
 const Sidebar = () => {
 
-  const linkStyle = ({ isActive }) => {
-    return {
-      color: isActive ? "darkblue" : "black",
-      fontWeight: isActive ? "bold" : "normal",
-      textDecoration: isActive ? "none" : "underline",
-      pointerEvents: isActive ? "none" : "",
-      userSelect: isActive ? "none" : "",
-    };
-  };
+  // const linkStyle = ({ isActive }) => {
+  //   return {
+  //     color: isActive ? "#6929af" : "#dfe6f2",
+  //     fontWeight: isActive ? "bold" : "normal",
+  //     textDecoration: isActive ? "underline" : "none",
+  //     pointerEvents: isActive ? "none" : "",
+  //     userSelect: isActive ? "none" : "",
+  //     display: "block",
+  //     marginBottom: "5px",
+  //   };
+  // };
 
   return (
     <nav className={styles.general}>
       {console.log("отрендерился Sidebar")}
-      <NavLink style={linkStyle} to="/">
+      <NavLink className={({ isActive }) =>
+        isActive ? styles.activeLink : styles.notActiveLink
+      } to="/">
         Тест скорости клика
       </NavLink>
-      <NavLink style={linkStyle} to="/about">
+      <NavLink className={({ isActive }) =>
+        isActive ? styles.activeLink : styles.notActiveLink
+      } to="/about">
         О скорости клика
       </NavLink>
     </nav>
