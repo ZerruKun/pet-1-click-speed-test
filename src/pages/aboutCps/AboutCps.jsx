@@ -3,8 +3,8 @@ import styles from "../../styles/Pages.module.css"
 
 const AboutCst = () => {
   return (
-    <div div className={styles.general}>
-      {console.log("отрендерился About")}
+    <div className={styles.general}>
+      {console.log("отрендерился AboutCst")}
       <h2>Что такое КПС?</h2>
       <p>Скорость кликов расчитывается в КПС (или CPS) - это сокращенно количество кликов в секунду.</p>
       <p>Если вы - неподготовленный игрок, то для вас будет нормальным результат в 4-6 кликов в секунду. 
