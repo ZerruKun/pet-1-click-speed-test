@@ -4,7 +4,7 @@ import CstInput from "../../components/cst/cstInput/CstInput"
 import CstCurrentResult from "../../components/cst/cstCurrentResult/CstCurrentResult"
 import CstLastTenResults from "../../components/cst/cstLastTenResults/CstLastTenResults";
 import CstButton from "../../components/cst/cstButton/CstButton";
-import styles from "../../styles/Cst.module.css"
+import styles from "../../styles/Pages.module.css"
 
 const Cst = observer(() => {
 

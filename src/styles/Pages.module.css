@@ -1,0 +1,63 @@
+input {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 2px solid black;
+    outline: 1px solid black;
+}
+
+input:focus {
+    border: 2px solid deepskyblue;
+    outline: 1px solid deepskyblue;
+}
+
+table, th, td {
+    border: 1px solid #79808a;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    padding: 0px 5px;
+}
+
+td {
+    padding: 0px 5px;
+}
+
+caption {
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+p {
+    padding: 7px;
+    text-align:justify;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-indent: 25px;
+}
+
+.general {
+    min-height: 670px;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #c2d1ea, #b7becc);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    border: 1px solid black;
+}
+
+.message {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+.tableAdditional{
+    margin: 0px auto;
+    margin-top: 20px;
+}

@@ -1,0 +1,30 @@
+.startButton {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    color: white;
+    background: #0fcdca;
+    padding: 10px;
+    font-size: 20px;
+    border-color: deepskyblue;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px;
+    transition: all 500ms ease-out;
+}
+
+.startButton:disabled {
+    opacity: 0.2;
+}
+
+.clickButton {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    color: white;
+    background: deepskyblue;
+    padding: 10px;
+    font-size: 20px;
+    border-color: deepskyblue;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
 import store from '../../../../store/store'
+import styles from "../../../../styles/Buttons.module.css"
 
 const CstClickButton = observer(() => {
 
@@ -12,7 +13,7 @@ const CstClickButton = observer(() => {
 
     return (
         <button 
-            style={{width: "120px", height: "120px"}} 
+            className={styles.clickButton}
             onClick={onButtonClick}
         >
             {console.log("отрендерился Клик!")}

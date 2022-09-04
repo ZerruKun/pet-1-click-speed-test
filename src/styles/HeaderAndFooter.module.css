@@ -167,7 +167,18 @@
     }
 }
 
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+
+h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+
 .background {
+    min-height: 40px;
     animation-name: movingBackround;
     animation-duration: 4s;
     animation-iteration-count: infinite;
