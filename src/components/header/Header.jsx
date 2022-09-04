@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className={styles.background}>
       {console.log("отрендерился Header")}
-      <h1 className={styles.text}>Я Header</h1>
+      <h1 className={styles.text}>Простой тест скорости клика</h1>
     </header>
   )
 }

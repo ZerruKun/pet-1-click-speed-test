@@ -35,15 +35,20 @@
 }
 
 .general {
-    min-width: 170px;
-    padding: 5px 10px;
+    padding: 10px 0px;
     background-image: linear-gradient(to bottom, #3694f3, #439df6);
     box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.link {
+    display:inline-block;
+    padding-right: 10px;
 }
 
 .activeLink {
-    display: block;
-    margin-bottom: 5px;
     animation-name: textBlink;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -54,8 +59,6 @@
 }
 
 .notActiveLink {
-    display: block;
-    margin-bottom: 5px;
     color: #dfe6f2;
     font-weight: normal;
     text-decoration: none;
