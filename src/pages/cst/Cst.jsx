@@ -11,7 +11,7 @@ const Cst = observer(() => {
   return (
     <div className={styles.general}>
       {console.log("отрендерился Cst")}
-      <h2>Введите время в секундах</h2>
+      <span className={styles.message}>Введите время в секундах</span>
       <CstInput />
       <CstButton />
       <CstCurrentResult />

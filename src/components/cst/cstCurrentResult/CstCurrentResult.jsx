@@ -2,10 +2,11 @@ import React from 'react'
 import CurrentClicks from './eachResult/CurrentClicks'
 import CurrentBest from './eachResult/CurrentBest'
 import CurrentAverage from './eachResult/CurrentAverage'
+import styles from "../../../styles/Results.module.css"
 
 const cstCurrentResult = () => {
   return (
-    <table>
+    <table className={styles.general}>
       {console.log("отрендерился cstCurrentResult")}
       <caption><b>Текущий результат</b></caption>
       <thead>

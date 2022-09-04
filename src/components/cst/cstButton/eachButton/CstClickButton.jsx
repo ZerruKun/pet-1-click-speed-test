@@ -12,7 +12,7 @@ const CstClickButton = observer(() => {
 
     return (
         <button 
-            style={{width: "100px", height: "100px"}} 
+            style={{width: "120px", height: "120px"}} 
             onClick={onButtonClick}
         >
             {console.log("отрендерился Клик!")}
