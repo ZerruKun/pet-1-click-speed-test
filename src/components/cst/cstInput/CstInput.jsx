@@ -46,7 +46,7 @@ const CstInput = observer(() => {
   return (
     <div>
         {console.log("отрендерился CstInput")}
-        <input style={ {width: "100px"} } value={store.startTime} onChange={(e) => {
+        <input style={ {width: "100px"} } placeholder="1-120" value={store.startTime} onChange={(e) => {
             store.setStartTime(e.target.value);
             isTimeCorrect();
             console.log("Меняется время")

@@ -1,0 +1,9 @@
+h2 {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+    padding: 10px 0px;
+}
+.general {
+    min-height: 500px;
+    text-align: center;
+}
