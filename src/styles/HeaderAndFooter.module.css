@@ -172,13 +172,8 @@ h1 {
     font-size: 35px;
 }
 
-h3 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 35px;
-}
-
 .background {
-    min-height: 40px;
+    min-height: 50px;
     animation-name: movingBackround;
     animation-duration: 4s;
     animation-iteration-count: infinite;
@@ -187,4 +182,24 @@ h3 {
 .text {
     color: #c2d1ea;
     text-align: center;
+}
+
+.footerBlock {
+    display: inline-block;
+    width: 50%;
+}
+
+.socialImg {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.copyright {
+    display: block;
+    padding-right: 10px;
+    text-align: right;
+    color: #c2d1ea;
 }
