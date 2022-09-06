@@ -1,13 +1,13 @@
 import React from "react";
-import { BrowserRouter } from 'react-router-dom';
-import Header from "./components/header/Header"
-import Footer from "./components/footer/Footer"
+import { BrowserRouter } from "react-router-dom";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import Main from "./components/main/Main";
+import styles from "./styles/App.module.css";
 
 const App = () => {
   return (
-    <div>
-      {console.log("отрендерился App")}
+    <div className={styles.general}>
       <Header />
       <BrowserRouter>
         <Main />
@@ -15,6 +15,6 @@ const App = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

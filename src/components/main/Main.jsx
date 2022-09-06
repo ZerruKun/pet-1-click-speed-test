@@ -1,23 +1,22 @@
-import React from 'react'
+import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Cst from "../../pages/cst/Cst"
-import AboutCst from "../../pages/aboutCst/AboutCst"
-import Sidebar from "../sidebar/Sidebar"
+import Cst from "../../pages/cst/Cst";
+import AboutCps from "../../pages/aboutCps/AboutCps";
+import Navbar from "../navbar/Navbar";
+import AboutTechnics from "../../pages/aboutTechnics/AboutTechnics";
 
 const Main = () => {
   return (
     <div>
-      {console.log("отрендерился Main")}
-      <h1>Я Main</h1>
-      <Sidebar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Cst />} />
         <Route path="*" element={<Cst />} />
-        {/* <Route path="*" element={<NoMatch />} /> */}
-        <Route path="/about" element={<AboutCst />} />
+        <Route path="/aboutcps" element={<AboutCps />} />
+        <Route path="/abouttechnics" element={<AboutTechnics />} />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

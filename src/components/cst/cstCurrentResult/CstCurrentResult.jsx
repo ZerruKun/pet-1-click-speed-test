@@ -1,16 +1,20 @@
-import React from 'react'
-import CurrentClicks from './eachResult/CurrentClicks'
-import CurrentBest from './eachResult/CurrentBest'
-import CurrentAverage from './eachResult/CurrentAverage'
+import React from "react";
+import CurrentClicks from "./eachResult/CurrentClicks";
+import CurrentBest from "./eachResult/CurrentBest";
+import CurrentAverage from "./eachResult/CurrentAverage";
+import styles from "../../../styles/Results.module.css";
 
 const cstCurrentResult = () => {
   return (
-    <table>
-      {console.log("отрендерился cstCurrentResult")}
-      <caption><b>Текущий результат</b></caption>
+    <table className={styles.general}>
+      <caption>
+        <b>Текущий результат</b>
+      </caption>
       <thead>
         <tr>
-          <th>Количество кликов</th><th>Лучший клик</th><th>Среднее время клика</th>
+          <th>Количество кликов</th>
+          <th>Лучший клик</th>
+          <th>Среднее время клика</th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +25,7 @@ const cstCurrentResult = () => {
         </tr>
       </tbody>
     </table>
-  )
-}
+  );
+};
 
-export default cstCurrentResult
+export default cstCurrentResult;

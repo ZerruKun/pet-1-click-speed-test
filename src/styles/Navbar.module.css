@@ -1,0 +1,66 @@
+@keyframes textBlink {
+    from {
+        color: #4a1d7b;
+    }
+    to {
+        color: #4a1d7b;
+    }
+    10% {
+        color: #54218c;
+    }
+    20% {
+        color: #5f259e;
+    }
+    30% {
+        color: #6929af;
+    }
+    40% {
+        color: #783eb7;
+    }
+    50% {
+        color: #8754bf;
+    }
+    60% {
+        color: #783eb7;
+    }
+    70% {
+        color: #6929af;
+    }
+    80% {
+        color: #5f259e;
+    }
+    90% {
+        color: #54218c;
+    }
+}
+
+.general {
+    padding: 10px 0px;
+    background-image: linear-gradient(to bottom, #3694f3, #439df6);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.link {
+    display:inline-block;
+    padding-right: 10px;
+}
+
+.activeLink {
+    animation-name: textBlink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    font-weight: bold;
+    text-decoration: underline;
+    pointer-events: none;
+    user-select: none;
+}
+
+.notActiveLink {
+    color: #dfe6f2;
+    font-weight: normal;
+    text-decoration: none;
+    user-select: none;
+}

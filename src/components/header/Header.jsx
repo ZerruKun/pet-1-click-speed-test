@@ -1,12 +1,12 @@
 import React from "react";
+import styles from "../../styles/HeaderAndFooter.module.css";
 
 const Header = () => {
   return (
-    <header>
-      {console.log("отрендерился Header")}
-      <h1>Я Header</h1>
+    <header className={styles.background}>
+      <h1 className={styles.text}>Проверка скорости клика</h1>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
